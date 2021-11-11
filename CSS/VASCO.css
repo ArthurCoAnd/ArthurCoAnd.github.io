@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+body {
+	font-family: 'Russo One', sans-serif;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	background-image: url("/Img/SãoJanuário.jpeg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.Campo{
+	margin: 15px 0px 15px 0px;
+	width: 80%;
+	padding: 15px;
+	border: 5px solid white;
+	background-color: #151515aa;
+	border-radius: 25px;
+	display: inline-block;
+	color: white;
+	font-size: 2.5vmin;
+}
+
+.Campo h1{
+	font-size: 5vmin;
+	margin: 5px 0px;
+	color: black;
+	text-shadow: 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+}
+
+.Campo .varIn{
+	text-align: center;
+    font-size: 2.5vmin;
+    font-weight: bold;
+	background-color: red;
+	box-sizing: border-box;
+	border: 2px solid black;
+	border-radius: 15px;
+}
+
+.Campo .cEqGrid img{
+	width: 100%;
+	size-adjust: inherit;
+	margin: 5px;
+}
+
+.nomGrid {
+	display: grid;
+	grid-template-columns: 1fr 9fr 9fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+	"valNom valNom valNom valNom"
+	". . . ."
+	". . . ."
+	". . . .";
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+}
+
+.valNom {
+	justify-self: center;
+	align-self: center;
+	grid-area: valNom
+}
+
+.enGrid {
+	display: grid;
+	grid-template-columns: 1fr 9fr 9fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+	"nEn nEn nEn nEn"
+	"tEn tEn tEn tEn"
+	". . . ."
+	". . . ."
+	". . . .";
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+}
+
+.nEn {
+	justify-self: center;
+	align-self: center;
+	grid-area: nEn;
+}
+
+.tEn {
+	justify-self: center;
+	align-self: center;
+	grid-area: tEn;
+}
+
+.cEqGrid {
+	display: grid;
+	grid-template-columns: 5fr 5fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		"nCEq nCEq nCEq"
+		". . ."
+		". . ."
+		". . ."
+		". . ."
+		". . ."
+		". . ."
+		". . .";
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+}
+
+.nCEq {
+	justify-self: center;
+	align-self: center;
+	grid-area: nCEq;
+}

@@ -1,0 +1,200 @@
+<!-- AMERICA - Auto MEasure batteRy sIze for Common Aerogenerators -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>INTER</title>
+	<link rel="icon" type="image/x-icon" href="/Img/Inter.ico">
+	<link rel="stylesheet" href="/CSS/INTER.css">
+	<link rel="stylesheet" href="/CSS/menu.css">
+	<link rel="stylesheet" href="/CSS/appName.css">
+	<script src="/JS/appName.js"></script>
+	<script src="/JS/INTER.js"></script>
+</head>
+<body>
+	<div class="menu">
+        <a class="menuPrincipal" href="/index.html">ArthurCoAnd</a>
+        <a href="AMERICA.html">AMERICA</a>
+        <a href="VASCO.html">VASCO</a>
+        <a href="INTER.html">INTER</a>
+    </div>
+	<div class="appName">
+		<a onclick="hinoPP()"><img src="/Img/Inter.ico"></a>
+		<h1>INTER</h1>
+		<h2>INterative Transistor calculatER</h2>
+	</div>
+	<center>
+		<div class="Campo">
+            <div><h1>Polarização Fixa TBJ</h1></div>
+            <div class="entradas">
+                <div><label>Rb</label></div>
+				<div><input class="varIn" type="number" id="inRbPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>Rc</label></div>
+				<div><input class="varIn" type="number" id="inRcPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>ro</label></div>
+				<div><input class="varIn" type="number" id="inroPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>β</label></div>
+				<div><input class="varIn" type="number" id="inBetaPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label></label></div>
+
+                <div><label>Vcc</label></div>
+				<div><input class="varIn" type="number" id="inVccPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>V</label></div>
+            </div>
+            <div class="saidas">
+                <div><img src="https://math.now.sh?from=Ib%3D%5Cfrac%7BVcc-0%2C7%7D%7BRb%7D&color=black&alternateColor=white"></div>
+				<div><label id="resIbPFTBJ"></label></div>
+				<div><label>A</label></div>
+                
+                <div><img src="https://math.now.sh?from=Ie%3D%28%5Cbeta%2B1%29Ib&color=black&alternateColor=white"></div>
+				<div><label id="resIePFTBJ"></label></div>
+				<div><label>A</label></div>
+
+                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=black&alternateColor=white"></div>
+				<div><label id="resrePFTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7B-Rc%2F%2Fro%7D%7Bre%7D&color=black&alternateColor=white"></div>
+				<div><label id="resAvnlPFTBJ"></label></div>
+				<div><label></label></div>
+
+                <div><img src="https://math.now.sh?from=Zi%3DRb%2F%2F%5Cbeta.re&color=black&alternateColor=white"></div>
+				<div><label id="resZiPFTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+                <div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=black&alternateColor=white"></div>
+				<div><label id="resZoPFTBJ"></label></div>
+				<div><label>Ω</label></div>
+            </div>
+        </div>
+		<div class="Campo">
+            <div><h1>Divisor de Tensão TBJ</h1></div>
+            <div class="entradas">
+                <div><label>R1</label></div>
+				<div><input class="varIn" type="number" id="inR1DTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>R2</label></div>
+				<div><input class="varIn" type="number" id="inR2DTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>Rc</label></div>
+				<div><input class="varIn" type="number" id="inRcDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>Re</label></div>
+				<div><input class="varIn" type="number" id="inReDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>ro</label></div>
+				<div><input class="varIn" type="number" id="inroDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>Ω</label></div>
+
+                <div><label>β</label></div>
+				<div><input class="varIn" type="number" id="inBetaDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label></label></div>
+
+                <div><label>Vcc</label></div>
+				<div><input class="varIn" type="number" id="inVccDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>V</label></div>
+            </div>
+            <div class="saidas">
+                <div><img src="https://math.now.sh?from=Vb%3D%5Cfrac%7BVcc.R2%7D%7BR1%2BR2%7D&color=black&alternateColor=white"></div>
+				<div><label id="resVbDTTBJ"></label></div>
+				<div><label>V</label></div>
+                
+                <div><img src="https://math.now.sh?from=Ve%3DVb-0%2C7&color=black&alternateColor=white"></div>
+				<div><label id="resVeDTTBJ"></label></div>
+				<div><label>V</label></div>
+
+                <div><img src="https://math.now.sh?from=Ie%3D%5Cfrac%7BVe%7D%7BRe%7D&color=black&alternateColor=white"></div>
+				<div><label id="resIeDTTBJ"></label></div>
+				<div><label>A</label></div>
+
+                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=black&alternateColor=white"></div>
+				<div><label id="resreDTTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+                <div><img src="https://math.now.sh?from=R'%3DR1%2F%2FR2&color=black&alternateColor=white"></div>
+				<div><label id="resR_DTTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7B-Rc%2F%2Fro%7D%7Bre%7D&color=black&alternateColor=white"></div>
+				<div><label id="resAvnlDTTBJ"></label></div>
+				<div><label></label></div>
+
+                <div><img src="https://math.now.sh?from=Zi%3DR'%2F%2F%5Cbeta.re&color=black&alternateColor=white"></div>
+				<div><label id="resZiDTTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+                <div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=black&alternateColor=white"></div>
+				<div><label id="resZoDTTBJ"></label></div>
+				<div><label>Ω</label></div>
+            </div>
+        </div>
+        <div class="Campo">
+            <div><h1>Seguidor Emissor TBJ</h1></div>
+            <div class="entradas">
+                <div><label>Rb</label></div>
+                <div><input class="varIn" type="number" id="inRbSETBJ" onchange="calcSETBJ()"></div>
+                <div><label>Ω</label></div>
+        
+                <div><label>Re</label></div>
+                <div><input class="varIn" type="number" id="inReSETBJ" onchange="calcSETBJ()"></div>
+                <div><label>Ω</label></div>
+        
+                <div><label>ro</label></div>
+                <div><input class="varIn" type="number" id="inroSETBJ" onchange="calcSETBJ()"></div>
+                <div><label>Ω</label></div>
+        
+                <div><label>β</label></div>
+                <div><input class="varIn" type="number" id="inBetaSETBJ" onchange="calcSETBJ()"></div>
+                <div><label></label></div>
+        
+                <div><label>Vcc</label></div>
+                <div><input class="varIn" type="number" id="inVccSETBJ" onchange="calcSETBJ()"></div>
+                <div><label>V</label></div>
+            </div>
+            <div class="saidas">
+                <div><img src="https://math.now.sh?from=Ib%3D%5Cfrac%7BVcc-0%2C7%7D%7BRb%2BRe%28%5Cbeta%2B1%29%7D&color=black&alternateColor=white"></div>
+                <div><label id="resIbSETBJ"></label></div>
+                <div><label>A</label></div>
+                
+                <div><img src="https://math.now.sh?from=Ie%3D%28%5Cbeta%2B1%29Ib&color=black&alternateColor=white"></div>
+                <div><label id="resIeSETBJ"></label></div>
+                <div><label>A</label></div>
+        
+                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=black&alternateColor=white"></div>
+                <div><label id="resreSETBJ"></label></div>
+                <div><label>Ω</label></div>
+        
+                <div><img src="https://math.now.sh?from=Zb%3D%5Cbeta%28Re%2Bre%29&color=black&alternateColor=white"></div>
+                <div><label id="resZbSETBJ"></label></div>
+                <div><label>Ω</label></div>
+        
+                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7BRe%7D%7BRe%2Bre%7D%5Capprox1&color=black&alternateColor=white"></div>
+                <div><label id="resAvnlSETBJ"></label></div>
+                <div><label></label></div>
+        
+                <div><img src="https://math.now.sh?from=Zi%3DRb%2F%2FZb&color=black&alternateColor=white"></div>
+                <div><label id="resZiSETBJ"></label></div>
+                <div><label>Ω</label></div>
+        
+                <div><img src="https://math.now.sh?from=Zo%3DRe%2F%2F%5Cbeta.re%2F%2Fre%2F%2Fro&color=black&alternateColor=white"></div>
+                <div><label id="resZoSETBJ"></label></div>
+                <div><label>Ω</label></div>
+            </div>
+        </div>
+	</center>
+	<audio id="hino" controls loop>
+		<source src="/Sound/HinoInternacional.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>

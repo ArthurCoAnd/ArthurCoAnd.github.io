@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+body {
+	font-family: 'Inter', sans-serif;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	background-image: url("/Img/BeiraRio.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.Campo{
+	margin: 15px 0px 15px 0px;
+	width: 80%;
+	padding: 15px;
+	border: 5px solid white;
+	background-color: #aa1515aa;
+	border-radius: 25px;
+	/* display: block; */
+	color: white;
+	font-size: 2.5vmin;
+}
+
+.Campo h1{
+	font-size: 5vmin;
+	margin: 5px 0px;
+	color: red;
+	text-shadow: 3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+}
+
+.Campo .varIn{
+	text-align: center;
+    font-size: 2.5vmin;
+    font-weight: bold;
+	background-color: red;
+	box-sizing: border-box;
+	border: 2px solid white;
+	border-radius: 15px;
+    color: white;
+}
+
+.entradas {
+    display: grid; 
+    margin: 15px 0px 0px;
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 2fr 6fr 2fr; 
+    grid-template-rows: 1fr; 
+    gap: 15px 0px; 
+    grid-template-areas: 
+      ". . ."; 
+    justify-content: center; 
+    align-content: center; 
+    justify-items: center; 
+    align-items: center; 
+}
+
+.saidas {
+    display: grid;
+    margin: 15px 0px 0px;
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 4fr 4fr 2fr; 
+    grid-template-rows: 1fr; 
+    gap: 15px 0px; 
+    grid-template-areas: 
+      ". . ."; 
+    justify-content: center; 
+    align-content: center; 
+    justify-items: center; 
+    align-items: center; 
+}
+
+.saidas img{
+	width: 100%;
+	size-adjust: inherit;
+	margin: 5px;
+}

@@ -1,0 +1,33 @@
+/* ===== Barra de Menu ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+.menu {
+    font-family: 'Orbitron', sans-serif;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 1%;
+}
+
+.menu a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+.menu a.menuPrincipal {
+    background-color: green;
+    color: white;
+}
+
+.menu a.menuPrincipal:hover {
+    background-color: white;
+    color: black;
+}

@@ -1,0 +1,20 @@
+.appName {
+	color: white;
+	text-shadow: 3px 0 0 #000, -3px 0 0 #000, 0 3px 0 #000, 0 -3px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+}
+
+.appName h1{
+    font-size: 5vmin;
+	margin: 0px;
+}
+
+.appName h2{
+	font-size: 2.5vmin;
+	margin: 0px;
+}
+
+.appName img {
+	width: 15vmin;
+	margin-left: auto;
+	margin-right: auto;
+}

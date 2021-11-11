@@ -1,0 +1,89 @@
+<!-- AMERICA - Auto MEasure batteRy sIze for Common Aerogenerators -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AMERICA</title>
+	<link rel="icon" type="image/x-icon" href="/Img/América.ico">
+	<link rel="stylesheet" href="/CSS/AMERICA.css">
+	<link rel="stylesheet" href="/CSS/menu.css">
+	<link rel="stylesheet" href="/CSS/appName.css">
+	<script src="/JS/appName.js"></script>
+	<script src="/JS/cPb.js"></script>
+	<script src="/JS/cVent.js"></script>
+</head>
+<body>
+	<div class="menu">
+        <a class="menuPrincipal" href="/index.html">ArthurCoAnd</a>
+        <a href="AMERICA.html">AMERICA</a>
+        <a href="VASCO.html">VASCO</a>
+        <a href="INTER.html">INTER</a>
+    </div>
+	<div class="appName">
+		<a onclick="hinoPP()"><img src="/Img/América.ico"></a>
+		<h1>AMERICA</h1>
+		<h2>Auto MEasure batteRy sIze for Common Aerogenerators</h2>
+	</div>
+	<center>
+		<div class="Campo">
+			<div><h1>Velocidade Média Anual do Vento</h1></div>
+			<div class="VentGrid">
+				<div><label class="varName">Buscar Cidade:</label></div>
+				<div><input class="varIn" type="text" id="inCidade"></div>
+				<div><label class="un"></label></div>
+
+				<div><label class="varName">Cidade:</label></div>
+				<div><label class="dVent" id="cidadeNome"></label></div>
+				<div><label class="un"></label></div>
+
+				<div><label class="varName">Estado:</label></div>
+				<div><label class="dVent" id="estado"></label></div>
+				<div><label class="un"></label></div>
+
+				<div><label class="varName">País:</label></div>
+				<div><label class="dVent" id="pais"></label></div>
+				<div><label class="un"></label></div>
+
+				<div><label class="varName">Latitude:</label></div>
+				<div><label class="dVent" id="lat"></label></div>
+				<div><label class="un"></label></div>
+
+				<div><label class="varName">Longitude:</label></div>
+				<div><label class="dVent" id="lon"></label></div>
+				<div><label class="un"></label></div>
+
+				<div><label class="varName">*Velocidade:</label></div>
+				<div><label class="dVent" id="velVent"></label></div>
+				<div><label class="un">m/s</label></div>
+			</div>
+			<div><button class="botao" onclick="cVent()">Buscar</button></div>
+			<div><p class="info">*A velocidade média anual do vento é obtida atraves da API "OpenWeather", e que por ter limitações à nível gratuito, só fornce as velocidades médias diárias dos ultimos 5 dias. A média da velocidade do vento desses 5 dias é considerado a velocidade média anual, portanto, o resultado é apenas para referência.</p></div>
+		</div>
+		<div class="Campo">
+			<div><h1>Potência de Bomba Hidraulica</h1></div>
+			<div class="PbGrid">
+				<div><input type="radio" id="rPb" name="varCalc" value="Pb" checked="checked" onclick="cfgOpCalcPb()"></div>
+				<div><label class="varName">Potência da Bomba:</label></div>
+				<div><input class="varIn" type="text" id="inPb" name="Pb" style="background-color: black;"></div>
+				<div><label class="un">CV</label></div>
+
+				<div><input type="radio" id="rH" name="varCalc" value="H" onclick="cfgOpCalcPb()"></div>
+				<div><label class="varName">Altura Monométrica:</label></div>
+				<div><input class="varIn" type="text" id="inH" name="H"></div>
+				<div><label class="un">m</label></div>
+
+				<div><input type="radio" id="rQ" name="varCalc" value="Q" onclick="cfgOpCalcPb()"></div>
+				<div><label class="varName">Vazão:</label></div>
+				<div><input class="varIn" type="text" id="inQ" name="Q"></div>
+				<div><label class="un">m³/h</label></div>
+			</div>
+			<div><img id="imgPb" src="https://math.now.sh?from=Pb%3D%5Cfrac%7BHQ%7D%7B3960%7D&color=green&alternateColor=black"></div>
+			<div><button class="botao" onclick="cPb()">Calcular</button></div>
+		</div>
+	</center>
+	<audio id="hino" controls loop>
+		<source src="/Sound/HinoAmérica.mp3" type="audio/mpeg">
+	</audio>
+</body>
+</html>

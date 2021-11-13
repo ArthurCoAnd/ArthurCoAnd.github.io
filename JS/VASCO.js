@@ -2,58 +2,17 @@ console.log("VASCO.js");
 let tEn = 0;
 let tFP = 0;
 
-let Sn = "";
-let V1 = "";
-let V2 = "";
-let Vvz = "";
-let Ivz = "";
-let Pvz = "";
-let Vcc = "";
-let Icc = "";
-let Pcc = "";
-let FP = "";
-let So = "";
-let Vo = "";
-let a = "";
+// let Sn = ""; V1 = ""; V2 = ""; Vvz = ""; Ivz = ""; Pvz = ""; Vcc = ""; Icc = ""; Pcc = ""; FP = ""; So = ""; Vo = ""; a = ""; Rc1 = ""; Rc2 = ""; Rphi = ""; Zphi = ""; Xphi = ""; Xm1 = ""; Xm2 = ""; Req = ""; R1 = ""; R2 = ""; Zcc = ""; Xeq = ""; X1 = ""; X2 = ""; I2 = ""; E2 = ""; Ic = ""; Im = ""; Iphi = ""; I1_ = ""; V1_ = ""; V1o = ""; I1 = ""; Pcu1 = ""; Pcu2 = ""; Pcu = ""; Pnu = ""; Pt = ""; Rt = ""; Nef = "";
 
-let Rc1 = "-";
-let Rc2 = "-";
-let Rphi = "-";
-let Zphi = "-";
-let Xphi = "-";
-let Xm1 = "-";
-let Xm2 = "-";
-
-let Req = "-";
-let R1 = "-";
-let R2 = "-";
-let Zcc = "-";
-let Xeq = "-";
-let X1 = "-";
-let X2 = "-";
-
-let I2 = "-";
-let E2 = "-";
-let Ic = "-";
-let Im = "-";
-let Iphi = "-";
-let I1_ = "-";
-let V1_ = "-";
-let V1o = "-";
-let I1 = "-";
-let Pcu1 = "-";
-let Pcu2 = "-";
-let Pcu = "-";
-let Pnu = "-";
-let Pt = "-";
-let Rt = "-";
-let Nef = "-";
+let Sn, V1, V2, Vvz, Ivz, Pvz, Vcc, Icc, Pcc, FP, So, Vo = "";
+let Rc1, Rc2, Rphi, Zphi, Xphi, Xm1, Xm2, Req, R1, R2, Zcc, Xeq, X1, X2 = "";
+let a, I2, E2, Ic, Im, Iphi, I1_, V1_, V1o, I1, Pcu1, Pcu2, Pcu, Pnu, Pt, Rt, Nef = "";
 
 function calcular(){
     lerEntradas()
     calcularEnVz()
     calcularEnCc()
-    // calcularEf()
+    calcularEf()
 }
 
 function lerEntradas(){
@@ -74,7 +33,11 @@ function lerEntradas(){
     Vcc = document.getElementById("inVcc").value;
     Icc = document.getElementById("inIcc").value;
     Pcc = document.getElementById("inPcc").value;
-    FP = document.getElementById("inFP").value;
+    if(document.getElementById("inFP").value == ""){
+        FP = 1
+    }else{
+        FP = document.getElementById("inFP").value;
+    }
     if(document.getElementById("inSo").value == ""){
         So = Sn;
     }else{
@@ -132,35 +95,56 @@ function calcularEnCc(){
     }
 }
 
-class Complex{
-    constructor(a,b){
-        this.re = a
-        this.im = b
-    }
-    mult(n){
-        const re = this.re*n.re - this.im*n.im;
-        const im = this.re*n.im + this.im*n.re;
-        return new Complex(re,im);
-    }
-    pol(){
-        this.rho = Math.sqrt(this.im**2 + this.im**2)
-        this.phi = Math.atan(this.im/this.re)
-        return "${this.rho} > ${}º"
-    }
-}
-
-function rec(rho,phi){
-    x = rho*Math.cos(Math.PI*phi/180)
-    y = rho*Math.sin(Math.PI*phi/180)
-    n = Complex(x,y)
-}
-
 function calcularEf(){
-    console.clear()
-    So = rec(So,Math.acos(FP))
-    console.log(So)
-    I2 = So/Vo
-    console.log(I2)
+    console.clear();
+    console.log("VASCO.js");
+    if(tFP==0){
+        I2 = rec(So/Vo,180*Math.acos(FP)/Math.PI);
+    }else{
+        I2 = rec(So/Vo,-180*Math.acos(FP)/Math.PI);
+    }
+    console.log("I2 = "+I2.pol());
+    Z2 = new Complex(R2,X2);
+    console.log("Z2 = "+Z2.pol());
+    E2 = rec(Vo,0).mais(Z2.mult(I2));
+    console.log("E2 = "+E2.pol());
+    Ic = E2.div(new Complex(Rc2,0));
+    console.log("Ic = "+Ic.pol());
+    Im = E2.div(new Complex(0,Xm2));
+    console.log("Im = "+Im.pol());
+    Iphi = Ic.mais(Im);
+    console.log("Iphi = "+Iphi.pol());
+    I1_ = I2.mais(Iphi);
+    console.log("I1_ = "+I1_.pol());
+    I1 = I1_.div(new Complex(a,0));
+    console.log("I1 = "+I1.pol());
+    V1_ = E2.mais(Z2.mult(I1_));
+    console.log("V1_ = "+V1_.pol());
+    V1o = V1_.mult(new Complex(a,0));
+    console.log("V1o = "+V1o.pol());
+    Pcu1 = R2*(I1_.rho**2);
+    console.log("Pcu1 = "+Pcu1);
+    Pcu2 = R2*(I2.rho**2);
+    console.log("Pcu2 = "+Pcu2);
+    Pcu = Pcu1 + Pcu2;
+    console.log("Pcu = "+Pcu);
+    Pnu = (E2.rho**2)/Rc2;
+    console.log("Pnu = "+Pnu);
+    Pt = Pcu + Pnu;
+    console.log("Pt = "+Pt);
+    Rt = 100*(V1_.rho-Vo)/Vo
+    console.log("Rt = "+Rt);
+    Nef = 100*(So*FP)/(Pt+So*FP)
+    console.log("Nef = "+Nef);
+    let calEf = ["I2","E2","Ic","Im","Iphi","I1_","I1","V1_","V1o","Pcu1","Pcu2","Pcu","Pnu","Pt","Rt","Nef"];
+    let calEfPol = ["I2","E2","Ic","Im","Iphi","I1_","I1","V1_","V1o"]
+    for(i=0, l=calEf.length; i<l; i++){
+        if(i<calEfPol.length){
+           document.getElementById("res"+calEf[i]).textContent = eval(calEf[i]).pol()
+        }else{
+            document.getElementById("res"+calEf[i]).textContent = eval(calEf[i])
+        }
+    }
 }
 
 function cfgFP(){
@@ -237,15 +221,54 @@ function cfgTEn(tipo){
     };
     if(tEn == 0){
         for(i=0, l=ordImgTEnVz.length; i<l; i++){
-            document.getElementById("img"+ordImgTEnVz[i]).src = "https://math.now.sh?from="+urlImgTEnVz0[ordImgTEnVz[i]]+"&color=black&alternateColor=white";
-            document.getElementById("img"+ordImgTEnCc[i]).src = "https://math.now.sh?from="+urlImgTEnCc0[ordImgTEnCc[i]]+"&color=black&alternateColor=white";
+            document.getElementById("img"+ordImgTEnVz[i]).src = "https://math.now.sh?from="+urlImgTEnVz0[ordImgTEnVz[i]]+"&color=white&alternateColor=white";
+            document.getElementById("img"+ordImgTEnCc[i]).src = "https://math.now.sh?from="+urlImgTEnCc0[ordImgTEnCc[i]]+"&color=white&alternateColor=white";
         }
     }
     if(tEn == 1){
         for(i=0, l=ordImgTEnVz.length; i<l; i++){
-            document.getElementById("img"+ordImgTEnVz[i]).src = "https://math.now.sh?from="+urlImgTEnVz1[ordImgTEnVz[i]]+"&color=black&alternateColor=white";
-            document.getElementById("img"+ordImgTEnCc[i]).src = "https://math.now.sh?from="+urlImgTEnCc1[ordImgTEnCc[i]]+"&color=black&alternateColor=white";
+            document.getElementById("img"+ordImgTEnVz[i]).src = "https://math.now.sh?from="+urlImgTEnVz1[ordImgTEnVz[i]]+"&color=white&alternateColor=white";
+            document.getElementById("img"+ordImgTEnCc[i]).src = "https://math.now.sh?from="+urlImgTEnCc1[ordImgTEnCc[i]]+"&color=white&alternateColor=white";
         }
     }
     calcular();
+}
+
+class Complex{
+    constructor(a,b){
+        this.re = a;
+        this.im = b;
+        this.rho = Math.sqrt(this.re**2 + this.im**2);
+        this.phi = Math.atan(this.im/this.re)*180/Math.PI;
+    }
+    mais(n){
+        const re = this.re+n.re;
+        const im = this.im+n.im;
+        return new Complex(re,im);
+    }
+    menos(n){
+        const re = this.re-n.re;
+        const im = this.im-n.im;
+        return new Complex(re,im);
+    }
+    mult(n){
+        const re = this.re*n.re - this.im*n.im;
+        const im = this.re*n.im + this.im*n.re;
+        return new Complex(re,im);
+    }
+    div(n){
+        const re = (this.re*n.re + this.im*n.im)/(n.re**2 + n.im**2);
+        const im = (this.im*n.re + this.re*n.im)/(n.re**2 + n.im**2);
+        return new Complex(re,im);
+    }
+    pol(){
+        return this.rho+" > "+this.phi+"º";
+    }
+}
+
+function rec(rho,phi){
+    x = rho*Math.cos(phi*Math.PI/180);
+    y = rho*Math.sin(phi*Math.PI/180);
+    n = new Complex(x,y);
+    return n
 }

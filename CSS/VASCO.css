@@ -40,84 +40,23 @@ body {
 	border-radius: 15px;
 }
 
-.Campo .cEqGrid img{
+.crvgGrid {
+    display: grid;
+    margin: 15px 0px 0px;
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 1fr 9fr 9fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 15px 0px; 
+    grid-template-areas: 
+      ". . . ."; 
+    justify-content: center; 
+    align-content: center; 
+    justify-items: center; 
+    align-items: center; 
+}
+
+.crvgGrid img{
 	width: 100%;
 	size-adjust: inherit;
 	margin: 5px;
-}
-
-.nomGrid {
-	display: grid;
-	grid-template-columns: 1fr 9fr 9fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr;
-	grid-template-areas:
-	"valNom valNom valNom valNom"
-	". . . ."
-	". . . ."
-	". . . .";
-	justify-content: center;
-	align-content: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.valNom {
-	justify-self: center;
-	align-self: center;
-	grid-area: valNom
-}
-
-.enGrid {
-	display: grid;
-	grid-template-columns: 1fr 9fr 9fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-	"nEn nEn nEn nEn"
-	"tEn tEn tEn tEn"
-	". . . ."
-	". . . ."
-	". . . .";
-	justify-content: center;
-	align-content: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.nEn {
-	justify-self: center;
-	align-self: center;
-	grid-area: nEn;
-}
-
-.tEn {
-	justify-self: center;
-	align-self: center;
-	grid-area: tEn;
-}
-
-.cEqGrid {
-	display: grid;
-	grid-template-columns: 5fr 5fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	gap: 0px 0px;
-	grid-template-areas:
-		"nCEq nCEq nCEq"
-		". . ."
-		". . ."
-		". . ."
-		". . ."
-		". . ."
-		". . ."
-		". . .";
-	justify-content: center;
-	align-content: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.nCEq {
-	justify-self: center;
-	align-self: center;
-	grid-area: nCEq;
 }

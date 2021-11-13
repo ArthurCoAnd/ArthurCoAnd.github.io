@@ -1,3 +1,5 @@
+// import {} from "https://www.gstatic.com/charts/loader.js"
+
 console.log("VASCO.js");
 let tEn = 0;
 let tFP = 0;
@@ -9,10 +11,10 @@ let Rc1, Rc2, Rphi, Zphi, Xphi, Xm1, Xm2, Req, R1, R2, Zcc, Xeq, X1, X2 = "";
 let a, I2, E2, Ic, Im, Iphi, I1_, V1_, V1o, I1, Pcu1, Pcu2, Pcu, Pnu, Pt, Rt, Nef = "";
 
 function calcular(){
-    lerEntradas()
-    calcularEnVz()
-    calcularEnCc()
-    calcularEf()
+    lerEntradas();
+    calcularEnVz();
+    calcularEnCc();
+    calcularEf();
 }
 
 function lerEntradas(){
@@ -69,7 +71,7 @@ function calcularEnVz(){
     }
     let calEnVz = ["Rc1","Rc2","Rphi","Zphi","Xphi","Xm1","Xm2"];
     for(i=0, l=calEnVz.length; i<l; i++){
-        document.getElementById("res"+calEnVz[i]).textContent = eval(calEnVz[i])
+        document.getElementById("res"+calEnVz[i]).textContent = eval(calEnVz[i]);
     }
 }
 
@@ -91,51 +93,51 @@ function calcularEnCc(){
     }
     let calEnCc = ["Req","R1","R2","Zcc","Xeq","X1","X2"];
     for(i=0, l=calEnCc.length; i<l; i++){
-        document.getElementById("res"+calEnCc[i]).textContent = eval(calEnCc[i])
+        document.getElementById("res"+calEnCc[i]).textContent = eval(calEnCc[i]);
     }
 }
 
 function calcularEf(){
-    console.clear();
-    console.log("VASCO.js");
+    // console.clear();
+    // console.log("VASCO.js");
     if(tFP==0){
         I2 = rec(So/Vo,180*Math.acos(FP)/Math.PI);
     }else{
         I2 = rec(So/Vo,-180*Math.acos(FP)/Math.PI);
     }
-    console.log("I2 = "+I2.pol());
     Z2 = new Complex(R2,X2);
-    console.log("Z2 = "+Z2.pol());
     E2 = rec(Vo,0).mais(Z2.mult(I2));
-    console.log("E2 = "+E2.pol());
     Ic = E2.div(new Complex(Rc2,0));
-    console.log("Ic = "+Ic.pol());
     Im = E2.div(new Complex(0,Xm2));
-    console.log("Im = "+Im.pol());
     Iphi = Ic.mais(Im);
-    console.log("Iphi = "+Iphi.pol());
     I1_ = I2.mais(Iphi);
-    console.log("I1_ = "+I1_.pol());
     I1 = I1_.div(new Complex(a,0));
-    console.log("I1 = "+I1.pol());
     V1_ = E2.mais(Z2.mult(I1_));
-    console.log("V1_ = "+V1_.pol());
     V1o = V1_.mult(new Complex(a,0));
-    console.log("V1o = "+V1o.pol());
     Pcu1 = R2*(I1_.rho**2);
-    console.log("Pcu1 = "+Pcu1);
     Pcu2 = R2*(I2.rho**2);
-    console.log("Pcu2 = "+Pcu2);
     Pcu = Pcu1 + Pcu2;
-    console.log("Pcu = "+Pcu);
     Pnu = (E2.rho**2)/Rc2;
-    console.log("Pnu = "+Pnu);
     Pt = Pcu + Pnu;
-    console.log("Pt = "+Pt);
-    Rt = 100*(V1_.rho-Vo)/Vo
-    console.log("Rt = "+Rt);
-    Nef = 100*(So*FP)/(Pt+So*FP)
-    console.log("Nef = "+Nef);
+    Rt = 100*(V1_.rho-Vo)/Vo;
+    Nef = 100*(So*FP)/(Pt+So*FP);
+    // console.log("I2 = "+I2.pol());
+    // console.log("Z2 = "+Z2.pol());
+    // console.log("E2 = "+E2.pol());
+    // console.log("Ic = "+Ic.pol());
+    // console.log("Im = "+Im.pol());
+    // console.log("Iphi = "+Iphi.pol());
+    // console.log("I1_ = "+I1_.pol());
+    // console.log("I1 = "+I1.pol());
+    // console.log("V1_ = "+V1_.pol());
+    // console.log("V1o = "+V1o.pol());
+    // console.log("Pcu1 = "+Pcu1);
+    // console.log("Pcu2 = "+Pcu2);
+    // console.log("Pcu = "+Pcu);
+    // console.log("Pnu = "+Pnu);
+    // console.log("Pt = "+Pt);
+    // console.log("Rt = "+Rt);
+    // console.log("Nef = "+Nef);
     let calEf = ["I2","E2","Ic","Im","Iphi","I1_","I1","V1_","V1o","Pcu1","Pcu2","Pcu","Pnu","Pt","Rt","Nef"];
     let calEfPol = ["I2","E2","Ic","Im","Iphi","I1_","I1","V1_","V1o"]
     for(i=0, l=calEf.length; i<l; i++){
@@ -270,5 +272,53 @@ function rec(rho,phi){
     x = rho*Math.cos(phi*Math.PI/180);
     y = rho*Math.sin(phi*Math.PI/180);
     n = new Complex(x,y);
-    return n
+    return n;
+}
+
+function gerarGra(){
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(Gra);
+}
+
+function Gra(){
+    var dataRt = new google.visualization.DataTable();
+    dataRt.addColumn('number', 'Carga (VA)');
+    dataRt.addColumn('number', 'Regulação de Tensão (%)');
+    var dataEf = new google.visualization.DataTable();
+    dataEf.addColumn('number', 'Carga (VA)');
+    dataEf.addColumn('number', 'Eficiência (%)');
+    const len = 10000;
+    const dif = Sn/len;
+    for(i=0; i<len; i++){
+        C = dif*i;
+        if(tFP==0){
+            I2 = rec(C/Vo,180*Math.acos(FP)/Math.PI);
+        }else{
+            I2 = rec(dif*i/Vo,-180*Math.acos(FP)/Math.PI);
+        }
+        Z2 = new Complex(R2,X2);
+        E2 = rec(Vo,0).mais(Z2.mult(I2));
+        Ic = E2.div(new Complex(Rc2,0));
+        Im = E2.div(new Complex(0,Xm2));
+        Iphi = Ic.mais(Im);
+        I1_ = I2.mais(Iphi);
+        I1 = I1_.div(new Complex(a,0));
+        V1_ = E2.mais(Z2.mult(I1_));
+        V1o = V1_.mult(new Complex(a,0));
+        Pcu1 = R2*(I1_.rho**2);
+        Pcu2 = R2*(I2.rho**2);
+        Pcu = Pcu1 + Pcu2;
+        Pnu = (E2.rho**2)/Rc2;
+        Pt = Pcu + Pnu;
+        Rt = 100*(V1_.rho-Vo)/Vo;
+        Nef = 100*(C*FP)/(Pt+C*FP);
+        dataRt.addRow([C,Rt])
+        dataEf.addRow([C,Nef])
+    }
+    var optionsRt = {title:'Regulação de Tensão (%) X Carga (VA)',width:"100%",height:500,legend:{position:'bottom'}};
+    var optionsEf = {title:'Eficiência (%) X Carga (VA)',width:"100%",height:500,legend:{position:'bottom'}};
+    var chartRt = new google.visualization.LineChart(document.getElementById('imgGraRt'));
+    var chartEf = new google.visualization.LineChart(document.getElementById('imgGraEf'));
+    chartRt.draw(dataRt, optionsRt);
+    chartEf.draw(dataEf, optionsEf);
 }

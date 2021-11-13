@@ -198,28 +198,28 @@ function cfgTEn(tipo){
     let ordImgTEnVz = ["Rc1","Rc2","Xm1","Xm2"];
     let ordImgTEnCc = ["R1","R2","X1","X2"];
     let urlImgTEnVz0 = {
-        Rc1: "R_%7Bc1%7D%3D%5Cfrac%7BV_%7Bvz%7D%5E%7B2%7D%7D%7BP_%7Bvz%7D%7D",
-        Rc2: "R_%7Bc2%7D%3D%5Cfrac%7BR_%7Bc1%7D%7D%7Ba%5E%7B2%7D%7D",
-        Xm1: "X_%7Bm1%7D%3D%5Cfrac%7BR_%7B%5Cpsi%7D%5E%7B2%7D%2BX_%7B%5Cpsi%7D%5E%7B2%7D%7D%7BX_%7B%5Cpsi%7D%7D",
-        Xm2: "X_%7Bm2%7D%3D%5Cfrac%7BX_%7Bm1%7D%7D%7Ba%5E%7B2%7D%7D",
+        Rc1: "%5Cfrac%7BV_%7Bvz%7D%5E%7B2%7D%7D%7BP_%7Bvz%7D%7D",
+        Rc2: "%5Cfrac%7BR_%7Bc1%7D%7D%7Ba%5E%7B2%7D%7D",
+        Xm1: "%5Cfrac%7BR_%7B%5Cpsi%7D%5E%7B2%7D%2BX_%7B%5Cpsi%7D%5E%7B2%7D%7D%7BX_%7B%5Cpsi%7D%7D",
+        Xm2: "%5Cfrac%7BX_%7Bm1%7D%7D%7Ba%5E%7B2%7D%7D",
     };
     let urlImgTEnCc0 = {
-        R1: "R_%7B1%7D%3DR_%7B2%7D.a%5E%7B2%7D",
-        R2: "R_%7B2%7D%3D%5Cfrac%7BR_%7Beq%7D%7D%7B2%7D",
-        X1: "X_%7B1%7D%3DX_%7B2%7D.a%5E%7B2%7D",
-        X2: "X_%7B2%7D%3D%5Cfrac%7BX_%7Beq%7D%7D%7B2%7D",
+        R1: "R_%7B2%7D.a%5E%7B2%7D",
+        R2: "%5Cfrac%7BR_%7Beq%7D%7D%7B2%7D",
+        X1: "X_%7B2%7D.a%5E%7B2%7D",
+        X2: "%5Cfrac%7BX_%7Beq%7D%7D%7B2%7D",
     };
     let urlImgTEnVz1 = {
-        Rc1: "R_%7Bc1%7D%3DR_%7Bc2%7D.a%5E%7B2%7D",
-        Rc2: "R_%7Bc2%7D%3D%5Cfrac%7BV_%7Bvz%7D%5E%7B2%7D%7D%7BP_%7Bvz%7D%7D",
-        Xm1: "X_%7Bm1%7D%3DX_%7Bm2%7D.a%5E%7B2%7D",
-        Xm2: "X_%7Bm2%7D%3D%5Cfrac%7BR_%7B%5Cpsi%7D%5E%7B2%7D%2BX_%7B%5Cpsi%7D%5E%7B2%7D%7D%7BX_%7B%5Cpsi%7D%7D",
+        Rc1: "R_%7Bc2%7D.a%5E%7B2%7D",
+        Rc2: "%5Cfrac%7BV_%7Bvz%7D%5E%7B2%7D%7D%7BP_%7Bvz%7D%7D",
+        Xm1: "X_%7Bm2%7D.a%5E%7B2%7D",
+        Xm2: "%5Cfrac%7BR_%7B%5Cpsi%7D%5E%7B2%7D%2BX_%7B%5Cpsi%7D%5E%7B2%7D%7D%7BX_%7B%5Cpsi%7D%7D",
     };
     let urlImgTEnCc1 = {
-        R1: "R_%7B1%7D%3D%5Cfrac%7BR_%7Beq%7D%7D%7B2%7D",
-        R2: "R_%7B2%7D%3DR_%7B1%7D.a%5E%7B2%7D",
-        X1: "X_%7B1%7D%3D%5Cfrac%7BX_%7Beq%7D%7D%7B2%7D",
-        X2: "X_%7B2%7D%3DX_%7B1%7D.a%5E%7B2%7D",
+        R1: "%5Cfrac%7BR_%7Beq%7D%7D%7B2%7D",
+        R2: "R_%7B1%7D.a%5E%7B2%7D",
+        X1: "%5Cfrac%7BX_%7Beq%7D%7D%7B2%7D",
+        X2: "X_%7B1%7D.a%5E%7B2%7D",
     };
     if(tEn == 0){
         for(i=0, l=ordImgTEnVz.length; i<l; i++){

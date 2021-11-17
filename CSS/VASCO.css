@@ -66,6 +66,12 @@ body {
 	margin-top: 15px;
 }
 
+#imgCircEq{
+	width: 100%;
+	border: 5px solid black;
+	margin-top: 15px;
+}
+
 .Campo button:hover {
 	color: lightgrey;
 	border-color: lightgrey;

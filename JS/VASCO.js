@@ -322,3 +322,11 @@ function Gra(){
     chartRt.draw(dataRt, optionsRt);
     chartEf.draw(dataEf, optionsEf);
 }
+
+function gerarCirc(){
+    const tela = document.querySelector("#imgCircEq");
+    const ctx = tela.getContext("2d");
+    img = new Image();
+    img.src = "/Img/Circuitos/CircuitoEquivalente.png";
+    img.onload = () => ctx.drawImage(img,0,0);
+}

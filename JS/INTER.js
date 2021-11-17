@@ -21,7 +21,7 @@ function cfgEntradas(entradas, tipo){
 
 function calcPFTBJ(){
     console.log("Polarização Fixa TBJ");
-    let tipo = "PFTBJ"
+    let tipo = "PFTBJ";
     let entradas = ["Rb","Rc","ro","Beta","Vcc"];
     cfgEntradas(entradas,tipo);
     let Rb = parseFloat(document.getElementById("in"+"Rb"+tipo).value);
@@ -43,7 +43,7 @@ function calcPFTBJ(){
 
 function calcDTTBJ(){
     console.log("Divisor de Tensão TBJ");
-    let tipo = "DTTBJ"
+    let tipo = "DTTBJ";
     let entradas = ["R1","R2","Rc","Re","ro","Beta","Vcc"];
     cfgEntradas(entradas,tipo);
     let R1 = parseFloat(document.getElementById("in"+"R1"+tipo).value);
@@ -69,7 +69,7 @@ function calcDTTBJ(){
 
 function calcSETBJ(){
     console.log("Seguidor Emissor TBJ");
-    let tipo = "SETBJ"
+    let tipo = "SETBJ";
     let entradas = ["Rb","Re","ro","Beta","Vcc"];
     cfgEntradas(entradas,tipo);
     let Rb = parseFloat(document.getElementById("in"+"Rb"+tipo).value);
@@ -85,6 +85,27 @@ function calcSETBJ(){
     let Zi = prl(Rb,Zb);
     let Zo = prl(Re,prl(Beta*re,prl(re,ro)));
     let saidas = ["Ib","Ie","re","Zb","Avnl","Zi","Zo"];
+    for(i=0, l=saidas.length; i<l; i++){
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential();
+    }
+}
+
+function calcBCTBJ(){
+    console.log("Base Comum TBJ");
+    let tipo = "BCTBJ";
+    let entradas = ["Rc","Re","ro","Alfa","Vee"];
+    cfgEntradas(entradas,tipo);
+    let Rc = parseFloat(document.getElementById("in"+"Rc"+tipo).value);
+    let Re = parseFloat(document.getElementById("in"+"Re"+tipo).value);
+    let ro = parseFloat(document.getElementById("in"+"ro"+tipo).value);
+    let Alfa = parseFloat(document.getElementById("in"+"Alfa"+tipo).value);
+    let Vee = parseFloat(document.getElementById("in"+"Vee"+tipo).value);
+    let Ie = (Vee-0.7)/Re;
+    let re = 0.026/Ie;
+    let Avnl = Alfa*prl(Rc,ro)/re;
+    let Zi = prl(Re,re);
+    let Zo = prl(Rc,ro);
+    let saidas = ["Ie","re","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential();
     }

@@ -195,6 +195,53 @@
                 <div><label>Ω</label></div>
             </div>
         </div>
+        <div class="Campo">
+            <div><h1>Base Comum TBJ</h1></div>
+            <div><img class="imgCirc" src="Img/Circuitos/BCTBJ.png"></div>
+
+            <div class="entradas">
+                <div><label>Rc</label></div>
+                <div><input class="varIn" type="number" id="inRcBCTBJ" onchange="calcBCTBJ()"></div>
+                <div><label>Ω</label></div>
+
+                <div><label>Re</label></div>
+                <div><input class="varIn" type="number" id="inReBCTBJ" onchange="calcBCTBJ()"></div>
+                <div><label>Ω</label></div>
+
+                <div><label>ro</label></div>
+                <div><input class="varIn" type="number" id="inroBCTBJ" onchange="calcBCTBJ()"></div>
+                <div><label>Ω</label></div>
+
+                <div><label>α</label></div>
+                <div><input class="varIn" type="number" id="inAlfaBCTBJ" onchange="calcBCTBJ()"></div>
+                <div><label></label></div>
+
+                <div><label>Vee</label></div>
+                <div><input class="varIn" type="number" id="inVeeBCTBJ" onchange="calcBCTBJ()"></div>
+                <div><label>V</label></div>
+            </div>
+            <div class="saidas">
+                <div><img src="https://math.now.sh?from=Ie%3D%5Cfrac%7BVee-0%2C7%7D%7Bre%7D&color=black&alternateColor=white"></div>
+                <div><label id="resIeBCTBJ"></label></div>
+                <div><label>A</label></div>
+
+                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=black&alternateColor=white"></div>
+                <div><label id="resreBCTBJ"></label></div>
+                <div><label>Ω</label></div>
+
+                <div><img src="https://math.now.sh?from=Avnl%3D%5Calpha%5Cfrac%7BRc%2F%2Fro%7D%7Bre%7D&color=black&alternateColor=white"></div>
+                <div><label id="resAvnlBCTBJ"></label></div>
+                <div><label></label></div>
+
+                <div><img src="https://math.now.sh?from=Zi%3DRe%2F%2Fre&color=black&alternateColor=white"></div>
+                <div><label id="resZiBCTBJ"></label></div>
+                <div><label>Ω</label></div>
+        
+                <div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=black&alternateColor=white"></div>
+                <div><label id="resZoBCTBJ"></label></div>
+                <div><label>Ω</label></div>
+            </div>
+        </div>
 	</center>
 	<audio id="hino" controls loop>
 		<source src="/Sound/HinoInternacional.mp3" type="audio/mpeg">

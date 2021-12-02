@@ -37,7 +37,7 @@ function calcPFTBJ(){
     let Zo = prl(Rc,ro);
     let saidas = ["Ib","Ie","re","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
-        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential();
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
 }
 
@@ -63,7 +63,7 @@ function calcDTTBJ(){
     let Zo = prl(Rc,ro);
     let saidas = ["Vb","Ve","Ie","re","R_","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
-        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential();
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
 }
 
@@ -86,7 +86,7 @@ function calcSETBJ(){
     let Zo = prl(Re,prl(Beta*re,prl(re,ro)));
     let saidas = ["Ib","Ie","re","Zb","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
-        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential();
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
 }
 
@@ -107,6 +107,6 @@ function calcBCTBJ(){
     let Zo = prl(Rc,ro);
     let saidas = ["Ie","re","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
-        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential();
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
 }

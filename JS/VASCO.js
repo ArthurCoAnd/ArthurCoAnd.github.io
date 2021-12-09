@@ -264,7 +264,7 @@ class Complex{
         return new Complex(re,im);
     }
     pol(){
-        return this.rho+" > "+this.phi+"º";
+        return this.rho.toFixed(5)+" > "+this.phi.toFixed(5)+"º";
     }
 }
 

@@ -110,3 +110,70 @@ function calcBCTBJ(){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
 }
+
+function calcPFFET(){
+    console.log("Polarização Fixa FET");
+    let tipo = "PFFET";
+    let entradas = ["Rg","Rd","Vp","Vgs","Yos","Idss"];
+    cfgEntradas(entradas,tipo);
+    let Rg = parseFloat(document.getElementById("in"+"Rg"+tipo).value);
+    let Rd = parseFloat(document.getElementById("in"+"Rd"+tipo).value);
+    let Vp = parseFloat(document.getElementById("in"+"Vp"+tipo).value);
+    let Vgs = parseFloat(document.getElementById("in"+"Vgs"+tipo).value);
+    let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
+    let Idss = parseFloat(document.getElementById("in"+"Idss"+tipo).value);
+    gm = 2*Idss*(1-(Vgs/Vp))/Math.abs(Vp);
+    rd = 1/Yos;
+    Avnl = -gm*prl(Rd,rd);
+    Zi = Rg;
+    Zo = prl(Rd,rd);
+    let saidas = ["gm","rd","Avnl","Zi","Zo"];
+    for(i=0, l=saidas.length; i<l; i++){
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
+    }
+}
+
+function calcDTFET(){
+    console.log("Divisor de Tensão FET");
+    let tipo = "DTFET";
+    let entradas = ["R1","R2","Rd","Vp","Vgs","Yos","Idss"];
+    cfgEntradas(entradas,tipo);
+    let R1 = parseFloat(document.getElementById("in"+"R1"+tipo).value);
+    let R2 = parseFloat(document.getElementById("in"+"R2"+tipo).value);
+    let Rd = parseFloat(document.getElementById("in"+"Rd"+tipo).value);
+    let Vp = parseFloat(document.getElementById("in"+"Vp"+tipo).value);
+    let Vgs = parseFloat(document.getElementById("in"+"Vgs"+tipo).value);
+    let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
+    let Idss = parseFloat(document.getElementById("in"+"Idss"+tipo).value);
+    gm = 2*Idss*(1-(Vgs/Vp))/Math.abs(Vp);
+    rd = 1/Yos;
+    Avnl = -gm*prl(Rd,rd);
+    Zi = prl(R1,R2);
+    Zo = prl(Rd,rd);
+    let saidas = ["gm","rd","Avnl","Zi","Zo"];
+    for(i=0, l=saidas.length; i<l; i++){
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
+    }
+}
+
+function calcDCFET(){
+    console.log("Dreno Comum FET");
+    let tipo = "DCFET";
+    let entradas = ["Rg","Rs","Vp","Vgs","Yos","Idss"];
+    cfgEntradas(entradas,tipo);
+    let Rg = parseFloat(document.getElementById("in"+"Rg"+tipo).value);
+    let Rs = parseFloat(document.getElementById("in"+"Rs"+tipo).value);
+    let Vp = parseFloat(document.getElementById("in"+"Vp"+tipo).value);
+    let Vgs = parseFloat(document.getElementById("in"+"Vgs"+tipo).value);
+    let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
+    let Idss = parseFloat(document.getElementById("in"+"Idss"+tipo).value);
+    gm = 2*Idss*(1-(Vgs/Vp))/Math.abs(Vp);
+    rd = 1/Yos;
+    Avnl = gm*prl(Rs,rd)/(1+gm*prl(Rs,rd));
+    Zi = Rg;
+    Zo = prl(prl(Rs,rd),1/gm);
+    let saidas = ["gm","rd","Avnl","Zi","Zo"];
+    for(i=0, l=saidas.length; i<l; i++){
+        document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
+    }
+}

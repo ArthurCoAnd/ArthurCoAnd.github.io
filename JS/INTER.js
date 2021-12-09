@@ -114,20 +114,26 @@ function calcBCTBJ(){
 function calcPFFET(){
     console.log("Polarização Fixa FET");
     let tipo = "PFFET";
-    let entradas = ["Rg","Rd","Vp","Vgs","Yos","Idss"];
+    let entradas = ["Rg","Rd","rd","Vp","Vgs","Yos","Idss"];
     cfgEntradas(entradas,tipo);
     let Rg = parseFloat(document.getElementById("in"+"Rg"+tipo).value);
     let Rd = parseFloat(document.getElementById("in"+"Rd"+tipo).value);
+    let rd = parseFloat(document.getElementById("in"+"rd"+tipo).value);
     let Vp = parseFloat(document.getElementById("in"+"Vp"+tipo).value);
     let Vgs = parseFloat(document.getElementById("in"+"Vgs"+tipo).value);
     let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
     let Idss = parseFloat(document.getElementById("in"+"Idss"+tipo).value);
+    if(document.getElementById("in"+"rd"+tipo).value == ""){
+        rd = 1/Yos;
+    }
+    if(document.getElementById("in"+"Yos"+tipo).value == ""){
+        Yos = 1/rd;
+    }
     gm = 2*Idss*(1-(Vgs/Vp))/Math.abs(Vp);
-    rd = 1/Yos;
     Avnl = -gm*prl(Rd,rd);
     Zi = Rg;
     Zo = prl(Rd,rd);
-    let saidas = ["gm","rd","Avnl","Zi","Zo"];
+    let saidas = ["rd","Yos","gm","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
@@ -136,21 +142,44 @@ function calcPFFET(){
 function calcDTFET(){
     console.log("Divisor de Tensão FET");
     let tipo = "DTFET";
-    let entradas = ["R1","R2","Rd","Vp","Vgs","Yos","Idss"];
+    let entradas = ["R1","R2","Rd","Rs","rd","Yos","Vdd","Vp","Vgs","Idss"];
     cfgEntradas(entradas,tipo);
     let R1 = parseFloat(document.getElementById("in"+"R1"+tipo).value);
     let R2 = parseFloat(document.getElementById("in"+"R2"+tipo).value);
     let Rd = parseFloat(document.getElementById("in"+"Rd"+tipo).value);
+    let Rs = parseFloat(document.getElementById("in"+"Rs"+tipo).value);
+    let rd = parseFloat(document.getElementById("in"+"rd"+tipo).value);
+    let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
+    let Vdd = parseFloat(document.getElementById("in"+"Vdd"+tipo).value);
     let Vp = parseFloat(document.getElementById("in"+"Vp"+tipo).value);
     let Vgs = parseFloat(document.getElementById("in"+"Vgs"+tipo).value);
-    let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
     let Idss = parseFloat(document.getElementById("in"+"Idss"+tipo).value);
+    if(document.getElementById("in"+"rd"+tipo).value == ""){
+        rd = 1/Yos;
+    }
+    if(document.getElementById("in"+"Yos"+tipo).value == ""){
+        Yos = 1/rd;
+    }
+    if(document.getElementById("in"+"Vgs"+tipo).value == ""){
+        let W = Rs*Idss;
+        let Z = Vdd*R2/(R1+R2);
+        let A = W/Math.pow(Vp,2);
+        let B = 1 - 2*W/Vp;
+        let C = W - Z;
+        let Delt = Math.sqrt(Math.pow(B,2)-4*A*C);
+        VgsM = (-B+Delt)/(2*A);
+        Vgsm = (-B-Delt)/(2*A);
+        if(Math.abs(VgsM) <= Math.abs(Vp)){
+            Vgs = VgsM;
+        }else if(Math.abs(Vgsm) <= Math.abs(Vp)){
+            Vgs = Vgsm;
+        }
+    }
     gm = 2*Idss*(1-(Vgs/Vp))/Math.abs(Vp);
-    rd = 1/Yos;
     Avnl = -gm*prl(Rd,rd);
     Zi = prl(R1,R2);
     Zo = prl(Rd,rd);
-    let saidas = ["gm","rd","Avnl","Zi","Zo"];
+    let saidas = ["rd","Yos","Vgs","gm","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
@@ -159,20 +188,30 @@ function calcDTFET(){
 function calcDCFET(){
     console.log("Dreno Comum FET");
     let tipo = "DCFET";
-    let entradas = ["Rg","Rs","Vp","Vgs","Yos","Idss"];
+    let entradas = ["Rg","Rs","rd","Vp","Vgs","Yos","Idss","Id"];
     cfgEntradas(entradas,tipo);
     let Rg = parseFloat(document.getElementById("in"+"Rg"+tipo).value);
     let Rs = parseFloat(document.getElementById("in"+"Rs"+tipo).value);
+    let rd = parseFloat(document.getElementById("in"+"rd"+tipo).value);
     let Vp = parseFloat(document.getElementById("in"+"Vp"+tipo).value);
     let Vgs = parseFloat(document.getElementById("in"+"Vgs"+tipo).value);
     let Yos = parseFloat(document.getElementById("in"+"Yos"+tipo).value);
     let Idss = parseFloat(document.getElementById("in"+"Idss"+tipo).value);
+    let Id = parseFloat(document.getElementById("in"+"Id"+tipo).value);
+    if(document.getElementById("in"+"rd"+tipo).value == ""){
+        rd = 1/Yos;
+    }
+    if(document.getElementById("in"+"Yos"+tipo).value == ""){
+        Yos = 1/rd;
+    }
+    if(document.getElementById("in"+"Vgs"+tipo).value == ""){
+        Vgs = Vp*(1-Math.sqrt(Id/Idss));
+    }
     gm = 2*Idss*(1-(Vgs/Vp))/Math.abs(Vp);
-    rd = 1/Yos;
     Avnl = gm*prl(Rs,rd)/(1+gm*prl(Rs,rd));
     Zi = Rg;
     Zo = prl(prl(Rs,rd),1/gm);
-    let saidas = ["gm","rd","Avnl","Zi","Zo"];
+    let saidas = ["rd","Yos","Vgs","gm","Avnl","Zi","Zo"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }

@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="/CSS/menu.css">
 	<link rel="stylesheet" href="/CSS/appName.css">
 	<script src="/JS/appName.js"></script>
-	<script src="/JS/cPb.js"></script>
-	<script src="/JS/cVent.js"></script>
+	<script src="/JS/AMERICA.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<div class="menu">
@@ -58,7 +58,7 @@
 				<div><label class="un">m/s</label></div>
 			</div>
 			<div><button class="botao" onclick="cVent()">Buscar</button></div>
-			<div><p class="info">*A velocidade média anual do vento é obtida atraves da API "OpenWeather", e que por ter limitações à nível gratuito, só fornce as velocidades médias diárias dos ultimos 5 dias. A média da velocidade do vento desses 5 dias é considerado a velocidade média anual, portanto, o resultado é apenas para referência.</p></div>
+			<div><p class="info">*A velocidade média anual do vento é obtida atraves da API "OpenWeather", e que por ter limitações à nível gratuito, só fornce as velocidades médias diárias dos ultimos 7 dias. A média da velocidade do vento desses 7 dias é considerado a velocidade média anual, portanto, o resultado é apenas para referência.</p></div>
 		</div>
 		<div class="Campo">
 			<div><h1>Potência de Bomba Hidraulica</h1></div>
@@ -80,6 +80,69 @@
 			</div>
 			<div><img id="imgPb" src="https://math.now.sh?from=Pb%3D%5Cfrac%7BHQ%7D%7B3960%7D&color=green&alternateColor=black"></div>
 			<div><button class="botao" onclick="cPb()">Calcular</button></div>
+		</div>
+		<div class="Campo">
+			<div><h1>Dados dos Aerogeradores</h1></div>
+			<div class="AFCGrid">
+				<div></div>
+				<div><label>Modelo:</label></div>
+				<div><select name="gerador" id="modNom" onchange="dadosAero()">
+					<option value="Notus Marine" selected>Notus Marine</option>
+					<option value="Notus 138">Notus 138</option>
+					<option value="Gerar Extreme">Gerar Extreme</option>
+					<option value="ELV-H2.7">ELV-H2.7</option>
+					<option value="ELV-H3.1">ELV-H3.1</option>
+					<option value="ELV-H3.8">ELV-H3.8</option>
+					<option value="ELV-H4.6">ELV-H4.6</option>
+					<option value="ELV-H6.4">ELV-H6.4</option>
+				</select></div>
+				<div></div>
+
+				<div></div>
+				<div><label>Marca</label></div>
+				<div><label id="DDAm">Enersud</label></div>
+				<div></div>
+
+				<div></div>
+				<div><label>Diâmetro da Hélice</label></div>
+				<div><label id="DDAddh">1.12</label></div>
+				<div><label>m</label></div>
+
+				<div></div>
+				<div><label>Número de Pás</label></div>
+				<div><label id="DDAnp">3</label></div>
+				<div><label></label></div>
+
+				<div></div>
+				<div><label>Peso Total</label></div>
+				<div><label id="DDApt">10</label></div>
+				<div><label>Kg</label></div>
+
+				<div></div>
+				<div><label>Potência Nominal</label></div>
+				<div><label id="DDApn">200</label></div>
+				<div><label>W</label></div>
+
+				<div></div>
+				<div><label>Rotação Nominal</label></div>
+				<div><label id="DDArn">900</label></div>
+				<div><label>RPM</label></div>
+
+				<div></div>
+				<div><label>Tensão de saída</label></div>
+				<div><label id="DDAts">12/24</label></div>
+				<div><label>V</label></div>
+
+				<div></div>
+				<div><label>Velocidade Nominal</label></div>
+				<div><label id="DDAvn">13</label></div>
+				<div><label>m/s</label></div>
+
+				<div></div>
+				<div><label>Velocidade de Partida</label></div>
+				<div><label id="DDAvdp">3.84</label></div>
+				<div><label>m/s</label></div>
+			</div>
 		</div>
 	</center>
 	<audio id="hino" controls loop>

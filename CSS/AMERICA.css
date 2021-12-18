@@ -93,6 +93,19 @@ body {
 	margin-top: 15px;
 }
 
+.Campo select{
+	width: 100%;
+	padding: 10px;
+	font-size: 3vmin;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: white;
+	background-color: black;
+	border: 2px solid white;
+	border-radius: 15px;
+}
+
 .PbGrid {
 	display: grid;
 	grid-template-columns: 1fr 9fr 9fr 1fr;
@@ -125,4 +138,19 @@ body {
 	align-content: center;
 	justify-items: center;
 	align-items: center;
+}
+
+.AFCGrid {
+    display: grid;
+    margin: 15px 0px 0px;
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 1fr 9fr 9fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 15px 0px; 
+    grid-template-areas: 
+      ". . . ."; 
+    justify-content: center; 
+    align-content: center; 
+    justify-items: center; 
+    align-items: center; 
 }

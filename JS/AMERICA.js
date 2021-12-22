@@ -13,6 +13,7 @@ let modelos = {
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 3.84,
 		"eq" : "y = 0.0004*Math.pow(x,6) - 0.0392*Math.pow(x,5) + 1.4979*Math.pow(x,4) - 29.655*Math.pow(x,3) + 321.34*Math.pow(x,2) - 1804.1*x + 4093.8",
+		"imgUrl" : "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024/https://www.enersud.com.br/wp-content/uploads/2019/03/turbina-eolica-notus-marine-02.jpg",
 	},
 	"Notus 138":{
 		"Marca" : "Enersud",
@@ -25,6 +26,7 @@ let modelos = {
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 2.2,
 		"eq" : "y = 0.0021*Math.pow(x,6) - 0.1048*Math.pow(x,5) + 1.8556*Math.pow(x,4) - 14.165*Math.pow(x,3) + 47.272*Math.pow(x,2) - 50.743*x + 5.1774",
+		"imgUrl" : "https://www.enersud.com.br/wp-content/uploads/2019/02/turbina-eolica-notus-138-02.jpg",
 	},
 	"Gerar Extreme":{
 		"Marca" : "Enersud",
@@ -37,6 +39,7 @@ let modelos = {
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 2.2,
 		"eq" : "y = -0.0122*Math.pow(x,6) + 0.84*Math.pow(x,5) - 22.442*Math.pow(x,4) + 292.79*Math.pow(x,3) - 1938.2*Math.pow(x,2) + 6204*x - 7476.4",
+		"imgUrl" : "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_614/https://www.enersud.com.br/wp-content/uploads/2019/05/turbina-eolica-gerar-extreme-enersud-614x1024.jpg",
 	},
 	"ELV-H2.7":{
 		"Marca" : "Eletrovento",
@@ -49,6 +52,7 @@ let modelos = {
 		"Velocidade Nominal" : 7,
 		"Velocidade de Partida" : 3,
 		"eq" : "y = -0.0028*Math.pow(x,6) + 0.184*Math.pow(x,5) - 4.6274*Math.pow(x,4) + 54.8*Math.pow(x,3) - 316.29*Math.pow(x,2) + 953.89*x - 1134.2",
+		"imgUrl" : "https://www.eletrovento.com.br/site/thumb.php?zc=2&a=tl&h=600&w=800&src=midia/produto/095e5efe3e400d3c8ea55932bb15da7e.jpg",
 	},
 	"ELV-H3.1":{
 		"Marca" : "Eletrovento",
@@ -61,6 +65,7 @@ let modelos = {
 		"Velocidade Nominal" : 9,
 		"Velocidade de Partida" : 3,
 		"eq" : "y = 0.0026*Math.pow(x,6) - 0.1589*Math.pow(x,5) + 3.7645*Math.pow(x,4) - 45.92*Math.pow(x,3) + 315.23*Math.pow(x,2) - 978.91*x + 1101.5",
+		"imgUrl" : "https://www.eletrovento.com.br/site/thumb.php?zc=2&a=tl&h=600&w=800&src=midia/produto/b6d041edf0f200e56f853e20af2de81d.jpg",
 	},
 	"ELV-H3.8":{
 		"Marca" : "Eletrovento",
@@ -73,6 +78,7 @@ let modelos = {
 		"Velocidade Nominal" : 9,
 		"Velocidade de Partida" : 3,
 		"eq" : "y = 0.0043*Math.pow(x,6) - 0.282*Math.pow(x,5) + 7.3834*Math.pow(x,4) - 100.75*Math.pow(x,3) + 749.92*Math.pow(x,2) - 2478.4*x + 2933.9",
+		"imgUrl" : "https://www.eletrovento.com.br/site/thumb.php?zc=2&a=tl&h=600&w=800&src=midia/produto/bfd13e8d91fb627b80d50d2d273dfac5.jpg",
 	},
 	"ELV-H4.6":{
 		"Marca" : "Eletrovento",
@@ -85,6 +91,7 @@ let modelos = {
 		"Velocidade Nominal" : 10,
 		"Velocidade de Partida" : 2.5,
 		"eq" : "y = 0.0043*Math.pow(x,6) - 0.2772*Math.pow(x,5) + 7.1233*Math.pow(x,4) - 97.076*Math.pow(x,3) + 745.05*Math.pow(x,2) - 2542.1*x + 3131.1",
+		"imgUrl" : "https://www.eletrovento.com.br/site/thumb.php?zc=2&a=tl&h=600&w=800&src=midia/produto/034dd87a853e042ea84639413df74894.jpg",
 	},
 	"ELV-H6.4":{
 		"Marca" : "Eletrovento",
@@ -96,7 +103,8 @@ let modelos = {
 		"Tensão de saída" : 240,
 		"Velocidade Nominal" : 10,
 		"Velocidade de Partida" : 2.5,
-		"eq" : "y = 0.0046*Math.pow(x,6) - 0.2542*Math.pow(x,5) + 5.5045*Math.pow(x,4) - 68.682*Math.pow(x,3) + 581.43*Math.pow(x,2) - 2170.7*x + 2961.9"
+		"eq" : "y = 0.0046*Math.pow(x,6) - 0.2542*Math.pow(x,5) + 5.5045*Math.pow(x,4) - 68.682*Math.pow(x,3) + 581.43*Math.pow(x,2) - 2170.7*x + 2961.9",
+		"imgUrl" : "https://www.eletrovento.com.br/site/thumb.php?zc=2&a=tl&h=600&w=800&src=midia/produto/8e9727d716d1d9505db18234917ab035.jpg",
 	},
 }
 
@@ -178,6 +186,7 @@ function dadosAero(){
 	for (i=0, l=dadosT.length; i<l; i++){
 		document.getElementById("DDA"+dadosN[i]).textContent = String(modelos[mod][dadosT[i]]);
 	}
+	document.getElementById("imgAero").src = modelos[mod]["imgUrl"];
 }
 
 function calcBB(){

@@ -108,6 +108,13 @@ body{
 	border-radius: 15px;
 }
 
+.imagem{
+	max-height: 50vmin;
+	max-width: 75vmin;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .AFCGrid{
     display: grid;
     margin: 15px 0px 0px;

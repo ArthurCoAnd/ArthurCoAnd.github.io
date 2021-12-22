@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
 
-body {
+body{
 	font-family: 'Spartan', sans-serif;
 	text-align: center;
 	margin: 0px;
@@ -11,7 +11,7 @@ body {
 	background-size: cover;
 }
 
-.Campo {
+.Campo{
 	margin: 15px 0px 15px 0px;
 	width: 80%;
 	padding: 15px;
@@ -20,19 +20,26 @@ body {
 	border-radius: 25px;
 }
 
-.Campo h1 {
+.Campo h1{
 	font-size: 5vmin;
 	margin: 15px 0px;
 	color: white;
 	text-shadow: 3px 0 0 #000, -3px 0 0 #000, 0 3px 0 #000, 0 -3px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
-.Campo label {
+.Campo h2{
+	font-size: 3vmin;
+	margin: 15px 0px;
+	color: white;
+	text-shadow: 3px 0 0 #000, -3px 0 0 #000, 0 3px 0 #000, 0 -3px 0 #000, 2px 2px #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+}
+
+.Campo label{
 	font-size: 3vmin;
     font-weight: bold;
 }
 
-.Campo .varIn {
+.Campo .varIn{
 	text-align: center;
     font-size: 3vmin;
 	font-weight: bold;
@@ -42,15 +49,15 @@ body {
 	border-radius: 15px;
 }
 
-.Campo .un {
+.Campo .un{
 	text-align: center;
 }
 
-.Campo .dVent {
+.Campo .dVent{
 	text-align: center;
 }
 
-.Campo button:hover {
+.Campo button:hover{
 	color: lightgrey;
 	border-color: lightgrey;
 }
@@ -63,7 +70,7 @@ body {
 	transform: translateY(4px);
 }
 
-.Campo button {
+.Campo button{
 	width: 50%;
 	padding: 10px;
 	font-size: 3vmin;
@@ -75,11 +82,6 @@ body {
 	border: 2px solid white;
 	border-radius: 15px;
 	box-shadow: 0 9px gray;
-}
-
-.Campo #imgPb{
-	width: 20vmin;
-	margin: 15px 0px 0px;
 }
 
 .Campo .info{
@@ -106,49 +108,15 @@ body {
 	border-radius: 15px;
 }
 
-.PbGrid {
-	display: grid;
-	grid-template-columns: 1fr 9fr 9fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	gap: 15px 0px;
-	grid-template-areas:
-	". . . ."
-	". . . ."
-	". . . .";
-	justify-content: center;
-	align-content: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.VentGrid {
-	display: grid;
-	grid-template-columns: 8fr 8fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-	gap: 15px 0px;
-	grid-template-areas:
-	". . ."
-	". . ."
-	". . ."
-	". . ."
-	". . ."
-	". . ."
-	". . .";
-	justify-content: center;
-	align-content: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.AFCGrid {
+.AFCGrid{
     display: grid;
     margin: 15px 0px 0px;
     grid-auto-rows: 1fr; 
-    grid-template-columns: 1fr 9fr 9fr 1fr; 
+    grid-template-columns: 9fr 9fr 2fr; 
     grid-template-rows: 1fr; 
     gap: 15px 0px; 
     grid-template-areas: 
-      ". . . ."; 
+      ". . ."; 
     justify-content: center; 
     align-content: center; 
     justify-items: center; 

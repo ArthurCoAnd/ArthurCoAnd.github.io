@@ -9,9 +9,10 @@ let modelos = {
 		"Peso Total" : 10,
 		"Potência Nominal" : 200,
 		"Rotação Nominal" : 900,
-		"Tensão de saída" : "12/24",
+		"Tensão de saída" : 24,
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 3.84,
+		"eq" : "y = 0.0004*Math.pow(x,6) - 0.0392*Math.pow(x,5) + 1.4979*Math.pow(x,4) - 29.655*Math.pow(x,3) + 321.34*Math.pow(x,2) - 1804.1*x + 4093.8",
 	},
 	"Notus 138":{
 		"Marca" : "Enersud",
@@ -20,9 +21,10 @@ let modelos = {
 		"Peso Total" : 12.5,
 		"Potência Nominal" : 420,
 		"Rotação Nominal" : 1100,
-		"Tensão de saída" : "12/24/48",
+		"Tensão de saída" : 24,
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 2.2,
+		"eq" : "y = 0.0021*Math.pow(x,6) - 0.1048*Math.pow(x,5) + 1.8556*Math.pow(x,4) - 14.165*Math.pow(x,3) + 47.272*Math.pow(x,2) - 50.743*x + 5.1774",
 	},
 	"Gerar Extreme":{
 		"Marca" : "Enersud",
@@ -31,9 +33,10 @@ let modelos = {
 		"Peso Total" : 39,
 		"Potência Nominal" : 1200,
 		"Rotação Nominal" :480,
-		"Tensão de saída" : "12/24/48",
+		"Tensão de saída" : 24,
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 2.2,
+		"eq" : "y = -0.0122*Math.pow(x,6) + 0.84*Math.pow(x,5) - 22.442*Math.pow(x,4) + 292.79*Math.pow(x,3) - 1938.2*Math.pow(x,2) + 6204*x - 7476.4",
 	},
 	"ELV-H2.7":{
 		"Marca" : "Eletrovento",
@@ -42,9 +45,10 @@ let modelos = {
 		"Peso Total" : 30.35,
 		"Potência Nominal" : 500,
 		"Rotação Nominal" : 600,
-		"Tensão de saída" : "24",
+		"Tensão de saída" : 24,
 		"Velocidade Nominal" : 7,
 		"Velocidade de Partida" : 3,
+		"eq" : "y = -0.0028*Math.pow(x,6) + 0.184*Math.pow(x,5) - 4.6274*Math.pow(x,4) + 54.8*Math.pow(x,3) - 316.29*Math.pow(x,2) + 953.89*x - 1134.2",
 	},
 	"ELV-H3.1":{
 		"Marca" : "Eletrovento",
@@ -53,9 +57,10 @@ let modelos = {
 		"Peso Total" : 60,
 		"Potência Nominal" : 1000,
 		"Rotação Nominal" : 500,
-		"Tensão de saída" : "48",
+		"Tensão de saída" : 48,
 		"Velocidade Nominal" : 9,
 		"Velocidade de Partida" : 3,
+		"eq" : "y = 0.0026*Math.pow(x,6) - 0.1589*Math.pow(x,5) + 3.7645*Math.pow(x,4) - 45.92*Math.pow(x,3) + 315.23*Math.pow(x,2) - 978.91*x + 1101.5",
 	},
 	"ELV-H3.8":{
 		"Marca" : "Eletrovento",
@@ -64,9 +69,10 @@ let modelos = {
 		"Peso Total" : 85,
 		"Potência Nominal" : 2000,
 		"Rotação Nominal" : 450,
-		"Tensão de saída" : "120",
+		"Tensão de saída" : 120,
 		"Velocidade Nominal" : 9,
 		"Velocidade de Partida" : 3,
+		"eq" : "y = 0.0043*Math.pow(x,6) - 0.282*Math.pow(x,5) + 7.3834*Math.pow(x,4) - 100.75*Math.pow(x,3) + 749.92*Math.pow(x,2) - 2478.4*x + 2933.9",
 	},
 	"ELV-H4.6":{
 		"Marca" : "Eletrovento",
@@ -75,9 +81,10 @@ let modelos = {
 		"Peso Total" : 182,
 		"Potência Nominal" : 3000,
 		"Rotação Nominal" : 400,
-		"Tensão de saída" : "180",
+		"Tensão de saída" : 180,
 		"Velocidade Nominal" : 10,
 		"Velocidade de Partida" : 2.5,
+		"eq" : "y = 0.0043*Math.pow(x,6) - 0.2772*Math.pow(x,5) + 7.1233*Math.pow(x,4) - 97.076*Math.pow(x,3) + 745.05*Math.pow(x,2) - 2542.1*x + 3131.1",
 	},
 	"ELV-H6.4":{
 		"Marca" : "Eletrovento",
@@ -86,18 +93,12 @@ let modelos = {
 		"Peso Total" : 405,
 		"Potência Nominal" : 5000,
 		"Rotação Nominal" : 240,
-		"Tensão de saída" : "240",
+		"Tensão de saída" : 240,
 		"Velocidade Nominal" : 10,
 		"Velocidade de Partida" : 2.5,
+		"eq" : "y = 0.0046*Math.pow(x,6) - 0.2542*Math.pow(x,5) + 5.5045*Math.pow(x,4) - 68.682*Math.pow(x,3) + 581.43*Math.pow(x,2) - 2170.7*x + 2961.9"
 	},
 }
-
-// Variaveis CalcPb
-let OpCalcPb = 0;
-let formURL = {
-	Pb: "Pb%3D%5Cfrac%7BHQ%7D%7B3960%7D",
-	H: "H%3D%5Cfrac%7B3960Pb%7D%7BQ%7D",
-	Q: "Q%3D%5Cfrac%7B3960Pb%7D%7BH%7D"};
 
 // Variaveis VMDV
 let cidadeNome = 0;
@@ -108,6 +109,7 @@ let lon = 0;
 let velVent = 0;
 
 function cVent(){
+	console.clear();
 	console.log("Velocidade Média Anual do Vento");
 	cidade = document.getElementById("inCidade").value;
 	console.log(cidade);
@@ -125,6 +127,7 @@ function cVent(){
 	cVelVent();
 	console.log("Velocidade do Vento = "+velVent);
 	document.getElementById("velVent").textContent = velVent.toFixed(5);
+	document.getElementById("inBBVv").value = velVent.toFixed(5);
 }
 
 function cVelVent(){
@@ -168,58 +171,6 @@ function Get(yourUrl){
 	return Httpreq.responseText;
 }
 
-function cPb(){
-	console.log("Calcular Potência da Bomba");
-	cfgOpCalcPb()
-	Pb = document.getElementById("inPb").value;
-	H = document.getElementById("inH").value;
-	Q = document.getElementById("inQ").value;
-	if(OpCalcPb!="Pb"){console.log("Pb = "+Pb);}
-	if(OpCalcPb!="H"){console.log("H = "+H);}
-	if(OpCalcPb!="Q"){console.log("Q = "+Q);}
-	switch(OpCalcPb){
-		case "Pb":
-			Pb = H*Q/3960;
-			console.log("Pb = "+Pb);
-			document.getElementById("inPb").value = Pb;
-			break;
-		case "H":
-			H = 3960*Pb/Q;
-			console.log("H = "+H);
-			document.getElementById("inH").value = H;
-			break;
-		case "Q":
-			Q = 3960*Pb/H;
-			console.log("Q = "+Q);
-			document.getElementById("inQ").value = Q;
-			break;
-		default:
-			console.log("Erro em Calcular Potência da Bomba");
-	}
-}
-
-function cfgOpCalcPb(){
-	// console.log("Configurar Opções de Cálculo");
-	varCalc = document.getElementsByName("varCalc");
-	for (i=0, l=varCalc.length; i<l; i++){
-		if (varCalc[i].checked){
-			OpCalcPb = varCalc[i].value;
-			console.log("OpCalc = "+OpCalcPb);
-			document.getElementById("in"+OpCalcPb).style.backgroundColor = "black";
-			document.getElementById("in"+OpCalcPb).style.color = "white";
-			document.getElementById("in"+OpCalcPb).value = "";
-			document.getElementById("in"+OpCalcPb).disabled = true;
-			document.getElementById("imgPb").src = "https://math.now.sh?from="+formURL[OpCalcPb]+"&color=green&alternateColor=black";
-		}
-		else{
-			document.getElementById("in"+varCalc[i].value).style.backgroundColor = "white";
-			document.getElementById("in"+varCalc[i].value).style.color = "black";
-			document.getElementById("in"+varCalc[i].value).disabled = false;
-		}
-	}
-	// console.log("OpCalc = "+OpCalcPb);
-}
-
 function dadosAero(){
 	let dadosT = ["Marca","Diâmetro da Hélice","Número de Pás","Peso Total","Potência Nominal","Rotação Nominal","Tensão de saída","Velocidade Nominal","Velocidade de Partida"];
 	let dadosN = ["m","ddh","np","pt","pn","rn","ts","vn","vdp"];
@@ -227,4 +178,53 @@ function dadosAero(){
 	for (i=0, l=dadosT.length; i<l; i++){
 		document.getElementById("DDA"+dadosN[i]).textContent = String(modelos[mod][dadosT[i]]);
 	}
+}
+
+function calcBB(){
+	console.clear();
+	console.log("Calculo Banco de Baterias");
+	let Ve = document.getElementById("inBBVe").value;
+	let Pc = document.getElementById("inBBPc").value;
+	let Hu = document.getElementById("inBBHu").value;
+	let Da = document.getElementById("inBBDa").value;
+	let Vv = document.getElementById("inBBVv").value;
+	let ECD = Pc * Hu;
+	console.log("ECD = "+ECD);
+	let EC = ECD * Da;
+	console.log("EC = "+EC);
+	let EA = EC / 0.4;
+	console.log("EA = "+EA);
+	let MA = "-";
+	let PA = 0;
+	let mods = Object.keys(modelos);
+	for(m=0;m<mods.length;m++){ 
+		let mod = mods[m];
+		if(Vv >= modelos[mod]["Velocidade de Partida"]){
+			console.log(mod);
+			let x = Vv;
+			let Pma = 24*Da*eval(modelos[mod]["eq"]);
+			console.log("PA = "+Pma);
+			if(Math.abs(EA-Pma)<Math.abs(EA-PA)){
+				MA = mod;
+				PA = Pma;
+			}
+		}
+	}
+	console.log("MA = "+MA);
+	document.getElementById("modNom").value = MA;
+	dadosAero();
+	document.getElementById("varBBMA").textContent = MA;
+	console.log("PA = "+PA);
+	let CBB = EA/modelos[MA]["Tensão de saída"];
+	console.log("CBB = "+CBB);
+	let NBS = Math.ceil(modelos[MA]["Tensão de saída"]/12);
+	document.getElementById("varBBBS").textContent = NBS;
+	let NBP = Math.ceil(CBB/220);
+	document.getElementById("varBBBP").textContent = NBP;
+	let TB = NBS * NBP;
+	document.getElementById("varBBTB").textContent = TB;
+
+	document.getElementById("varInvVin").textContent = modelos[MA]["Tensão de saída"];
+	document.getElementById("varInvVout").textContent = Ve;
+	document.getElementById("varInvPmin").textContent = Math.ceil(Pc*1.2);
 }

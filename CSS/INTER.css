@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: 'Inter', sans-serif;
 	text-align: center;
@@ -39,6 +43,18 @@ body {
 	border: 2px solid white;
 	border-radius: 15px;
     color: white;
+}
+
+.Campo button{
+	text-align: center;
+	font-size: 2.5vmin;
+	font-weight: bold;
+	margin: 5px 5px 5px;
+	width: 100%;
+	background-color: #aa1515aa;
+	color: white;
+	border: 3px solid white;
+	border-radius: 15px;
 }
 
 .entradas {

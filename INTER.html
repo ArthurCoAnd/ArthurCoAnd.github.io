@@ -20,12 +20,22 @@
         <a href="/INTER.html">INTER</a>
     </div>
 	<div class="appName">
-		<a onclick="hinoPP()"><img src="/Img/Inter.ico"></a>
+        <a onclick="hinoPP()"><img src="/Img/Inter.ico"></a>
 		<h1>INTER</h1>
 		<h2>INterative Transistor calculatER</h2>
 	</div>
-	<center>
-		<div class="Campo">
+    <center>
+        <div class="Campo">
+            <div><h1>Circuitos</h1></div>
+            <div><a href="#PFTBJ"><button>Polarização Fixa TBJ</button></a></div>
+            <div><a href="#DTTBJ"><button>Divisor de Tensão TBJ</button></a></div>
+            <div><a href="#SETBJ"><button>Seguidor Emissor TBJ</button></a></div>
+            <div><a href="#BCTBJ"><button>Base Comum TBJ</button></a></div>
+            <div><a href="#PFFET"><button>Polarização Fixa FET</button></a></div>
+            <div><a href="#DTFET"><button>Divisor de Tensão FET</button></a></div>
+            <div><a href="#DCFET"><button>Dreno Comum FET</button></a></div>
+        </div>
+		<div class="Campo" id="PFTBJ">
             <div><h1>Polarização Fixa TBJ</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/PFTBJ.png"></div>
             <div class="entradas">
@@ -75,7 +85,7 @@
 				<div><label>Ω</label></div>
             </div>
         </div>
-		<div class="Campo">
+		<div class="Campo" id="DTTBJ">
             <div><h1>Divisor de Tensão TBJ</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/DTTBJ.png"></div>
             <div class="entradas">
@@ -141,7 +151,7 @@
 				<div><label>Ω</label></div>
             </div>
         </div>
-        <div class="Campo">
+        <div class="Campo" id="SETBJ">
             <div><h1>Seguidor Emissor TBJ</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/SETBJ.png"></div>
             <div class="entradas">
@@ -195,7 +205,7 @@
                 <div><label>Ω</label></div>
             </div>
         </div>
-        <div class="Campo">
+        <div class="Campo" id="BCTBJ">
             <div><h1>Base Comum TBJ</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/BCTBJ.png"></div>
             <div class="entradas">
@@ -241,7 +251,7 @@
                 <div><label>Ω</label></div>
             </div>
         </div>
-        <div class="Campo">
+        <div class="Campo" id="PFFET">
             <div><h1>Polarização Fixa FET</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/PFFET.png"></div>
             <div class="entradas">
@@ -299,7 +309,7 @@
                 <div><label>Ω</label></div>
             </div>
         </div>
-        <div class="Campo">
+        <div class="Campo" id="DTFET">
             <div><h1>Divisor de Tensão FET</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/DTFET.png"></div>
             <div class="entradas">
@@ -373,7 +383,7 @@
                 <div><label>Ω</label></div>
             </div>
         </div>
-        <div class="Campo">
+        <div class="Campo" id="DCFET">
             <div><h1>Dreno Comum FET</h1></div>
             <div><img class="imgCirc" src="Img/Circuitos/DCFET.png"></div>
             <div class="entradas">
@@ -438,6 +448,7 @@
                 <div><label id="resZoDCFET"></label></div>
                 <div><label>Ω</label></div>
             </div>
+        </div>
 	</center>
 	<audio id="hino" controls loop>
 		<source src="/Sound/HinoInternacional.mp3" type="audio/mpeg">

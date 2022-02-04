@@ -12,7 +12,7 @@ let modelos = {
 		"Tensão de saída" : 24,
 		"Velocidade Nominal" : 13,
 		"Velocidade de Partida" : 3.84,
-		"eq" : "y = 0.0004*Math.pow(x,6) - 0.0392*Math.pow(x,5) + 1.4979*Math.pow(x,4) - 29.655*Math.pow(x,3) + 321.34*Math.pow(x,2) - 1804.1*x + 4093.8",
+		"eq" : "0.0034*Math.pow(x,6) - 0.1064*Math.pow(x,5) + 1.2222*Math.pow(x,4) - 6.1068*Math.pow(x,3) + 13.809*Math.pow(x,2) - 11.869*x + 0.9794",
 		"imgUrl" : "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1024/https://www.enersud.com.br/wp-content/uploads/2019/03/turbina-eolica-notus-marine-02.jpg",
 	},
 	"Notus 138":{

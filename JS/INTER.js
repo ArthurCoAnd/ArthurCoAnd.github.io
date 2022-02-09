@@ -19,25 +19,7 @@ function cfgEntradas(entradas, tipo){
     }
 }
 
-function calcPFTBJ(){
-    console.log("Polarização Fixa TBJ");
-    let tipo = "PFTBJ";
-    let entradas = ["Rb","Rc","ro","Beta","Vcc","RS","RL"];
-    cfgEntradas(entradas,tipo);
-    let Rb = parseFloat(document.getElementById("in"+"Rb"+tipo).value);
-    let Rc = parseFloat(document.getElementById("in"+"Rc"+tipo).value);
-    let ro = parseFloat(document.getElementById("in"+"ro"+tipo).value);
-    let Beta = parseFloat(document.getElementById("in"+"Beta"+tipo).value);
-    let Vcc = parseFloat(document.getElementById("in"+"Vcc"+tipo).value);
-    let RS = parseFloat(document.getElementById("in"+"RS"+tipo).value);
-    let RL = parseFloat(document.getElementById("in"+"RL"+tipo).value);
-    let Ib = (Vcc-0.7)/Rb;
-    let Ie = (Beta+1)*Ib;
-    let re = 0.026/Ie;
-    let Avnl = -prl(Rc,ro)/re;
-    let Zi = prl(Rb,Beta*re);
-    let Zo = prl(Rc,ro);
-    let Av = Avnl;
+function AV(tipo,Avnl,Zi,Zo,RS,RL){
     if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
         Av = Avnl;
     }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
@@ -47,7 +29,61 @@ function calcPFTBJ(){
     }else{
         Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
     }
-    let saidas = ["Ib","Ie","re","Avnl","Zi","Zo","Av"];
+    return Av
+}
+
+function FL(fle,fli,flo){
+    fl = Math.max(fle,fli,flo);
+    return fl;
+}
+
+function FH(fhi,fho,ft){
+    fh = Math.min(fhi,fho,ft);
+    return fh;
+}
+
+function calcPFTBJ(){
+    console.log("Polarização Fixa TBJ");
+    let tipo = "PFTBJ";
+    let entradas = ["Rb","Rc","Re","ro","Beta","Vcc","RS","RL","Ce","Ci","Co","Cwi","Cwo","Cbc","Cbe","Cce"];
+    cfgEntradas(entradas,tipo);
+    let Rb = parseFloat(document.getElementById("in"+"Rb"+tipo).value);
+    let Rc = parseFloat(document.getElementById("in"+"Rc"+tipo).value);
+    let Re = parseFloat(document.getElementById("in"+"Re"+tipo).value);
+    let ro = parseFloat(document.getElementById("in"+"ro"+tipo).value);
+    let Beta = parseFloat(document.getElementById("in"+"Beta"+tipo).value);
+    let Vcc = parseFloat(document.getElementById("in"+"Vcc"+tipo).value);
+    let RS = parseFloat(document.getElementById("in"+"RS"+tipo).value);
+    let RL = parseFloat(document.getElementById("in"+"RL"+tipo).value);
+    let Ce = parseFloat(document.getElementById("in"+"Ce"+tipo).value);
+    let Ci = parseFloat(document.getElementById("in"+"Ci"+tipo).value);
+    let Co = parseFloat(document.getElementById("in"+"Co"+tipo).value);
+    let Cwi = parseFloat(document.getElementById("in"+"Cwi"+tipo).value);
+    let Cwo = parseFloat(document.getElementById("in"+"Cwo"+tipo).value);
+    let Cbc = parseFloat(document.getElementById("in"+"Cbc"+tipo).value);
+    let Cbe = parseFloat(document.getElementById("in"+"Cbe"+tipo).value);
+    let Cce = parseFloat(document.getElementById("in"+"Cce"+tipo).value);
+    let Ib = (Vcc-0.7)/Rb;
+    let Ie = (Beta+1)*Ib;
+    let re = 0.026/Ie;
+    let Avnl = -prl(Rc,ro)/re;
+    let Zi = prl(Rb,Beta*re);
+    let Zo = prl(Rc,ro);
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
+    let Ri = prl(RS,Rb);
+    let Zeq = prl(Re,re+Ri/Beta);
+    let fle = 1/(2*Math.PI*Ce*Zeq);
+    let fli = 1/(2*Math.PI*Ci*(Zi+RS));
+    let flo = 1/(2*Math.PI*Co*(Zo+RL));
+    let fl = FL(fle,fli,flo);
+    let Avl = Av = Avnl*(RL/(RL+Zo));
+    let Chi = Cwi+Cbe+Cbc*(1-Avl);
+    let Cho = Cwo+Cce+Cbc*(1-1/Avl);
+    let fhi = 1/(2*Math.PI*Chi*prl(RS,Zi));
+    let fho = 1/(2*Math.PI*Cho*prl(RL,Zo));
+    let ft = 1/(2*Math.PI*re*(Cbe+Cbc));
+    let fh = FH(fhi,fho,ft);
+    let saidas = ["Ib","Ie","re","Avnl","Zi","Zo","Av","Ri","Zeq","fle","fli","flo","fl","Chi","Cho","fhi","fho","ft","fh"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
@@ -56,7 +92,7 @@ function calcPFTBJ(){
 function calcDTTBJ(){
     console.log("Divisor de Tensão TBJ");
     let tipo = "DTTBJ";
-    let entradas = ["R1","R2","Rc","Re","ro","Beta","Vcc","RS","RL"];
+    let entradas = ["R1","R2","Rc","Re","ro","Beta","Vcc","RS","RL","Ce","Ci","Co","Cwi","Cwo","Cbc","Cbe","Cce"];
     cfgEntradas(entradas,tipo);
     let R1 = parseFloat(document.getElementById("in"+"R1"+tipo).value);
     let R2 = parseFloat(document.getElementById("in"+"R2"+tipo).value);
@@ -67,6 +103,14 @@ function calcDTTBJ(){
     let Vcc = parseFloat(document.getElementById("in"+"Vcc"+tipo).value);
     let RS = parseFloat(document.getElementById("in"+"RS"+tipo).value);
     let RL = parseFloat(document.getElementById("in"+"RL"+tipo).value);
+    let Ce = parseFloat(document.getElementById("in"+"Ce"+tipo).value);
+    let Ci = parseFloat(document.getElementById("in"+"Ci"+tipo).value);
+    let Co = parseFloat(document.getElementById("in"+"Co"+tipo).value);
+    let Cwi = parseFloat(document.getElementById("in"+"Cwi"+tipo).value);
+    let Cwo = parseFloat(document.getElementById("in"+"Cwo"+tipo).value);
+    let Cbc = parseFloat(document.getElementById("in"+"Cbc"+tipo).value);
+    let Cbe = parseFloat(document.getElementById("in"+"Cbe"+tipo).value);
+    let Cce = parseFloat(document.getElementById("in"+"Cce"+tipo).value);
     let Vb = Vcc*R2/(R1+R2);
     let Ve = Vb-0.7;
     let Ie = Ve/Re;
@@ -75,17 +119,21 @@ function calcDTTBJ(){
     let Avnl = -prl(Rc,ro)/re;
     let Zi = prl(R_,Beta*re);
     let Zo = prl(Rc,ro);
-    let Av = Avnl;
-    if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
-        Av = Avnl;
-    }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
-        Av = Avnl*(RL/(RL+Zo));
-    }else if(document.getElementById("in"+"RL"+tipo).value == "" || RL == 0.0){
-        Av = Avnl*(Zi/(Zi+RS));
-    }else{
-        Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
-    }
-    let saidas = ["Vb","Ve","Ie","re","R_","Avnl","Zi","Zo","Av"];
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
+    let Ri = prl(RS,R_);
+    let Zeq = prl(Re,re+Ri/Beta);
+    let fle = 1/(2*Math.PI*Ce*Zeq);
+    let fli = 1/(2*Math.PI*Ci*(Zi+RS));
+    let flo = 1/(2*Math.PI*Co*(Zo+RL));
+    let fl = FL(fle,fli,flo);
+    let Avl = Av = Avnl*(RL/(RL+Zo));
+    let Chi = Cwi+Cbe+Cbc*(1-Avl);
+    let Cho = Cwo+Cce+Cbc*(1-1/Avl);
+    let fhi = 1/(2*Math.PI*Chi*prl(RS,Zi));
+    let fho = 1/(2*Math.PI*Cho*prl(RL,Zo));
+    let ft = 1/(2*Math.PI*re*(Cbe+Cbc));
+    let fh = FH(fhi,fho,ft);
+    let saidas = ["Vb","Ve","Ie","re","R_","Avnl","Zi","Zo","Av","Ri","Zeq","fle","fli","flo","fl","Chi","Cho","fhi","fho","ft","fh"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
@@ -94,7 +142,7 @@ function calcDTTBJ(){
 function calcSETBJ(){
     console.log("Seguidor Emissor TBJ");
     let tipo = "SETBJ";
-    let entradas = ["Rb","Re","ro","Beta","Vcc","RS","RL"];
+    let entradas = ["Rb","Re","ro","Beta","Vcc","RS","RL","Ce","Ci","Co","Cwi","Cwo","Cbc","Cbe","Cce"];
     cfgEntradas(entradas,tipo);
     let Rb = parseFloat(document.getElementById("in"+"Rb"+tipo).value);
     let Re = parseFloat(document.getElementById("in"+"Re"+tipo).value);
@@ -103,6 +151,14 @@ function calcSETBJ(){
     let Vcc = parseFloat(document.getElementById("in"+"Vcc"+tipo).value);
     let RS = parseFloat(document.getElementById("in"+"RS"+tipo).value);
     let RL = parseFloat(document.getElementById("in"+"RL"+tipo).value);
+    let Ce = parseFloat(document.getElementById("in"+"Ce"+tipo).value);
+    let Ci = parseFloat(document.getElementById("in"+"Ci"+tipo).value);
+    let Co = parseFloat(document.getElementById("in"+"Co"+tipo).value);
+    let Cwi = parseFloat(document.getElementById("in"+"Cwi"+tipo).value);
+    let Cwo = parseFloat(document.getElementById("in"+"Cwo"+tipo).value);
+    let Cbc = parseFloat(document.getElementById("in"+"Cbc"+tipo).value);
+    let Cbe = parseFloat(document.getElementById("in"+"Cbe"+tipo).value);
+    let Cce = parseFloat(document.getElementById("in"+"Cce"+tipo).value);
     let Ib = (Vcc-0.7)/(Rb+Re*(Beta+1));
     let Ie = (Beta+1)*Ib;
     let re = 0.026/Ie;
@@ -110,17 +166,21 @@ function calcSETBJ(){
     let Avnl = Re/(Re+re);
     let Zi = prl(Rb,Zb);
     let Zo = prl(Re,prl(Beta*re,prl(re,ro)));
-    let Av = Avnl;
-    if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
-        Av = Avnl;
-    }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
-        Av = Avnl*(RL/(RL+Zo));
-    }else if(document.getElementById("in"+"RL"+tipo).value == "" || RL == 0.0){
-        Av = Avnl*(Zi/(Zi+RS));
-    }else{
-        Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
-    }
-    let saidas = ["Ib","Ie","re","Zb","Avnl","Zi","Zo","Av"];
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
+    let Ri = prl(RS,Rb);
+    let Zeq = prl(Re,re+Ri/Beta);
+    let fle = 1/(2*Math.PI*Ce*Zeq);
+    let fli = 1/(2*Math.PI*Ci*(Zi+RS));
+    let flo = 1/(2*Math.PI*Co*(Zo+RL));
+    let fl = FL(fle,fli,flo);
+    let Avl = Av = Avnl*(RL/(RL+Zo));
+    let Chi = Cwi+Cbe+Cbc*(1-Avl);
+    let Cho = Cwo+Cce+Cbc*(1-1/Avl);
+    let fhi = 1/(2*Math.PI*Chi*prl(RS,Zi));
+    let fho = 1/(2*Math.PI*Cho*prl(RL,Zo));
+    let ft = 1/(2*Math.PI*re*(Cbe+Cbc));
+    let fh = FH(fhi,fho,ft);
+    let saidas = ["Ib","Ie","re","Zb","Avnl","Zi","Zo","Av","Ri","Zeq","fle","fli","flo","fl","Chi","Cho","fhi","fho","ft","fh"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
@@ -129,7 +189,7 @@ function calcSETBJ(){
 function calcBCTBJ(){
     console.log("Base Comum TBJ");
     let tipo = "BCTBJ";
-    let entradas = ["Rc","Re","ro","Alfa","Vee","RS","RL"];
+    let entradas = ["Rc","Re","ro","Alfa","Vee","RS","RL","Ce","Ci","Co","Cwi","Cwo","Cbc","Cbe","Cce"];
     cfgEntradas(entradas,tipo);
     let Rc = parseFloat(document.getElementById("in"+"Rc"+tipo).value);
     let Re = parseFloat(document.getElementById("in"+"Re"+tipo).value);
@@ -138,22 +198,34 @@ function calcBCTBJ(){
     let Vee = parseFloat(document.getElementById("in"+"Vee"+tipo).value);
     let RS = parseFloat(document.getElementById("in"+"RS"+tipo).value);
     let RL = parseFloat(document.getElementById("in"+"RL"+tipo).value);
+    let Ce = parseFloat(document.getElementById("in"+"Ce"+tipo).value);
+    let Ci = parseFloat(document.getElementById("in"+"Ci"+tipo).value);
+    let Co = parseFloat(document.getElementById("in"+"Co"+tipo).value);
+    let Cwi = parseFloat(document.getElementById("in"+"Cwi"+tipo).value);
+    let Cwo = parseFloat(document.getElementById("in"+"Cwo"+tipo).value);
+    let Cbc = parseFloat(document.getElementById("in"+"Cbc"+tipo).value);
+    let Cbe = parseFloat(document.getElementById("in"+"Cbe"+tipo).value);
+    let Cce = parseFloat(document.getElementById("in"+"Cce"+tipo).value);
     let Ie = (Vee-0.7)/Re;
     let re = 0.026/Ie;
     let Avnl = Alfa*prl(Rc,ro)/re;
     let Zi = prl(Re,re);
     let Zo = prl(Rc,ro);
-    let Av = Avnl;
-    if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
-        Av = Avnl;
-    }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
-        Av = Avnl*(RL/(RL+Zo));
-    }else if(document.getElementById("in"+"RL"+tipo).value == "" || RL == 0.0){
-        Av = Avnl*(Zi/(Zi+RS));
-    }else{
-        Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
-    }
-    let saidas = ["Ie","re","Avnl","Zi","Zo","Av"];
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
+    let Ri = prl(RS,Re);
+    let Zeq = prl(Re,re+Ri/Beta);
+    let fle = 1/(2*Math.PI*Ce*Zeq);
+    let fli = 1/(2*Math.PI*Ci*(Zi+RS));
+    let flo = 1/(2*Math.PI*Co*(Zo+RL));
+    let fl = FL(fle,fli,flo);
+    let Avl = Av = Avnl*(RL/(RL+Zo));
+    let Chi = Cwi+Cbe+Cbc*(1-Avl);
+    let Cho = Cwo+Cce+Cbc*(1-1/Avl);
+    let fhi = 1/(2*Math.PI*Chi*prl(RS,Zi));
+    let fho = 1/(2*Math.PI*Cho*prl(RL,Zo));
+    let ft = 1/(2*Math.PI*re*(Cbe+Cbc));
+    let fh = FH(fhi,fho,ft);
+    let saidas = ["Ie","re","Avnl","Zi","Zo","Av","Ri","Zeq","fle","fli","flo","fl","Chi","Cho","fhi","fho","ft","fh"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
     }
@@ -183,16 +255,7 @@ function calcPFFET(){
     Avnl = -gm*prl(Rd,rd);
     Zi = Rg;
     Zo = prl(Rd,rd);
-    let Av = Avnl;
-    if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
-        Av = Avnl;
-    }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
-        Av = Avnl*(RL/(RL+Zo));
-    }else if(document.getElementById("in"+"RL"+tipo).value == "" || RL == 0.0){
-        Av = Avnl*(Zi/(Zi+RS));
-    }else{
-        Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
-    }
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
     let saidas = ["rd","Yos","gm","Avnl","Zi","Zo","Av"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
@@ -241,16 +304,7 @@ function calcDTFET(){
     Avnl = -gm*prl(Rd,rd);
     Zi = prl(R1,R2);
     Zo = prl(Rd,rd);
-    let Av = Avnl;
-    if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
-        Av = Avnl;
-    }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
-        Av = Avnl*(RL/(RL+Zo));
-    }else if(document.getElementById("in"+"RL"+tipo).value == "" || RL == 0.0){
-        Av = Avnl*(Zi/(Zi+RS));
-    }else{
-        Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
-    }
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
     let saidas = ["rd","Yos","Vgs","gm","Avnl","Zi","Zo","Av"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);
@@ -285,16 +339,7 @@ function calcDCFET(){
     Avnl = gm*prl(Rs,rd)/(1+gm*prl(Rs,rd));
     Zi = Rg;
     Zo = prl(prl(Rs,rd),1/gm);
-    let Av = Avnl;
-    if(document.getElementById("in"+"RS"+tipo).value == "" && document.getElementById("in"+"RL"+tipo).value == ""){
-        Av = Avnl;
-    }else if(document.getElementById("in"+"RS"+tipo).value == "" || RS == 0.0){
-        Av = Avnl*(RL/(RL+Zo));
-    }else if(document.getElementById("in"+"RL"+tipo).value == "" || RL == 0.0){
-        Av = Avnl*(Zi/(Zi+RS));
-    }else{
-        Av = Avnl*(RL/(RL+Zo))*(Zi/(Zi+RS));
-    }
+    let Av = AV(tipo,Avnl,Zi,Zo,RS,RL);
     let saidas = ["rd","Yos","Vgs","gm","Avnl","Zi","Zo","Av"];
     for(i=0, l=saidas.length; i<l; i++){
         document.getElementById("res"+saidas[i]+tipo).textContent = eval(saidas[i]).toExponential(5);

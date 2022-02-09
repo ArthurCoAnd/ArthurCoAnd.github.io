@@ -14,525 +14,849 @@
 </head>
 <body>
 	<div class="menu">
-        <a class="menuPrincipal" href="/">ArthurCoAnd</a>
-        <a href="/AMERICA.html">AMERICA</a>
-        <a href="/VASCO.html">VASCO</a>
-        <a href="/INTER.html">INTER</a>
-    </div>
+		<a class="menuPrincipal" href="/">ArthurCoAnd</a>
+		<a href="/AMERICA.html">AMERICA</a>
+		<a href="/VASCO.html">VASCO</a>
+		<a href="/INTER.html">INTER</a>
+	</div>
 	<div class="appName">
-        <a onclick="hinoPP()"><img src="/Img/Inter.ico"></a>
+		<a onclick="hinoPP()"><img src="/Img/Inter.ico"></a>
 		<h1>INTER</h1>
 		<h2>INterative Transistor calculatER</h2>
 	</div>
-    <center>
-        <div class="Campo">
-            <div><h1>Circuitos</h1></div>
-            <div><a href="#PFTBJ"><button>Polarização Fixa TBJ</button></a></div>
-            <div><a href="#DTTBJ"><button>Divisor de Tensão TBJ</button></a></div>
-            <div><a href="#SETBJ"><button>Seguidor Emissor TBJ</button></a></div>
-            <div><a href="#BCTBJ"><button>Base Comum TBJ</button></a></div>
-            <div><a href="#PFFET"><button>Polarização Fixa FET</button></a></div>
-            <div><a href="#DTFET"><button>Divisor de Tensão FET</button></a></div>
-            <div><a href="#DCFET"><button>Dreno Comum FET</button></a></div>
-        </div>
+	<center>
+		<div class="Campo">
+			<div><h1>Circuitos</h1></div>
+			<div><a href="#PFTBJ"><button>Polarização Fixa TBJ</button></a></div>
+			<div><a href="#DTTBJ"><button>Divisor de Tensão TBJ</button></a></div>
+			<div><a href="#SETBJ"><button>Seguidor Emissor TBJ</button></a></div>
+			<div><a href="#BCTBJ"><button>Base Comum TBJ</button></a></div>
+			<div><a href="#PFFET"><button>Polarização Fixa FET</button></a></div>
+			<div><a href="#DTFET"><button>Divisor de Tensão FET</button></a></div>
+			<div><a href="#DCFET"><button>Dreno Comum FET</button></a></div>
+		</div>
 		<div class="Campo" id="PFTBJ">
-            <div><h1>Polarização Fixa TBJ</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/PFTBJ.png"></div>
-            <div class="entradas">
-                <div><label>Rb</label></div>
+			<div><h1>Polarização Fixa TBJ</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/PFTBJ.png"></div>
+			<div class="entradas">
+				<div><label>Rb</label></div>
 				<div><input class="varIn" type="number" id="inRbPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>Rc</label></div>
+				<div><label>Rc</label></div>
 				<div><input class="varIn" type="number" id="inRcPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>ro</label></div>
+				<div><label>Re</label></div>
+				<div><input class="varIn" type="number" id="inRePFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>Ω</label></div>
+
+				<div><label>ro</label></div>
 				<div><input class="varIn" type="number" id="inroPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>β</label></div>
+				<div><label>β</label></div>
 				<div><input class="varIn" type="number" id="inBetaPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label></label></div>
 
-                <div><label>Vcc</label></div>
+				<div><label>Vcc</label></div>
 				<div><input class="varIn" type="number" id="inVccPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label>V</label></div>
 
-                <div><label>RS</label></div>
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLPFTBJ" onchange="calcPFTBJ()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=Ib%3D%5Cfrac%7BVcc-0%2C7%7D%7BRb%7D&color=white&alternateColor=white"></div>
+
+				<div><label>Ce</label></div>
+				<div><input class="varIn" type="number" id="inCePFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Ci</label></div>
+				<div><input class="varIn" type="number" id="inCiPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Co</label></div>
+				<div><input class="varIn" type="number" id="inCoPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwi</label></div>
+				<div><input class="varIn" type="number" id="inCwiPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwo</label></div>
+				<div><input class="varIn" type="number" id="inCwoPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbc</label></div>
+				<div><input class="varIn" type="number" id="inCbcPFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbe</label></div>
+				<div><input class="varIn" type="number" id="inCbePFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cce</label></div>
+				<div><input class="varIn" type="number" id="inCcePFTBJ" onchange="calcPFTBJ()"></div>
+				<div><label>F</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=Ib%3D%5Cfrac%7BVcc-0%2C7%7D%7BRb%7D&color=white&alternateColor=white"></div>
 				<div><label id="resIbPFTBJ"></label></div>
 				<div><label>A</label></div>
-                
-                <div><img src="https://math.now.sh?from=Ie%3D%28%5Cbeta%2B1%29Ib&color=white&alternateColor=white"></div>
+				
+				<div><img src="https://math.now.sh?from=Ie%3D%28%5Cbeta%2B1%29Ib&color=white&alternateColor=white"></div>
 				<div><label id="resIePFTBJ"></label></div>
 				<div><label>A</label></div>
 
-                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
 				<div><label id="resrePFTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7B-Rc%2F%2Fro%7D%7Bre%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7B-Rc%2F%2Fro%7D%7Bre%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvnlPFTBJ"></label></div>
 				<div><label></label></div>
 
-                <div><img src="https://math.now.sh?from=Zi%3DRb%2F%2F%5Cbeta.re&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Zi%3DRb%2F%2F%5Cbeta.re&color=white&alternateColor=white"></div>
 				<div><label id="resZiPFTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=white&alternateColor=white"></div>
 				<div><label id="resZoPFTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvPFTBJ"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
+
+				<div><img src="https://math.now.sh?from=Ri%3DRS%2F%2FRb&color=white&alternateColor=white"></div>
+				<div><label id="resRiPFTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=Zeq%3DRe%2F%2F%5Cleft%28%5Cfrac%7BRi%7D%7B%5Cbeta%7D%2Bre%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resZeqPFTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=fle%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ce.Zeq%7D&color=white&alternateColor=white"></div>
+				<div><label id="resflePFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fli%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ci.%28Zi%2BRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfliPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=flo%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Co.%28Zo%2BRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfloPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fl%3Dmaior%28fle%2Cfli%2Cflo%29&color=white&alternateColor=white"></div>
+				<div><label id="resflPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=Chi%3DCwi%2BCbe%2BCbc.%281-Avl%29&color=white&alternateColor=white"></div>
+				<div><label id="resChiPFTBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=Cho%3DCwo%2BCce%2BCbc.%5Cleft%281-%5Cfrac%7B1%7D%7BAvl%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resChoPFTBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=fhi%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Chi.%28Zi%2F%2FRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhiPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Cho.%28Zo%2F%2FRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhoPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.re.%28Cbc%2BCbe%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resftPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fh%3Dmenor%28fhi%2Cfho%2Cft%29&color=white&alternateColor=white"></div>
+				<div><label id="resfhPFTBJ"></label></div>
+				<div><label>Hz</label></div>
+			</div>
+		</div>
 		<div class="Campo" id="DTTBJ">
-            <div><h1>Divisor de Tensão TBJ</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/DTTBJ.png"></div>
-            <div class="entradas">
-                <div><label>R1</label></div>
+			<div><h1>Divisor de Tensão TBJ</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/DTTBJ.png"></div>
+			<div class="entradas">
+				<div><label>R1</label></div>
 				<div><input class="varIn" type="number" id="inR1DTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>R2</label></div>
+				<div><label>R2</label></div>
 				<div><input class="varIn" type="number" id="inR2DTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>Rc</label></div>
+				<div><label>Rc</label></div>
 				<div><input class="varIn" type="number" id="inRcDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>Re</label></div>
+				<div><label>Re</label></div>
 				<div><input class="varIn" type="number" id="inReDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>ro</label></div>
+				<div><label>ro</label></div>
 				<div><input class="varIn" type="number" id="inroDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>β</label></div>
+				<div><label>β</label></div>
 				<div><input class="varIn" type="number" id="inBetaDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label></label></div>
 
-                <div><label>Vcc</label></div>
+				<div><label>Vcc</label></div>
 				<div><input class="varIn" type="number" id="inVccDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>V</label></div>
 
-                <div><label>RS</label></div>
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLDTTBJ" onchange="calcDTTBJ()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=Vb%3D%5Cfrac%7BVcc.R2%7D%7BR1%2BR2%7D&color=white&alternateColor=white"></div>
+
+				<div><label>Ce</label></div>
+				<div><input class="varIn" type="number" id="inCeDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Ci</label></div>
+				<div><input class="varIn" type="number" id="inCiDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Co</label></div>
+				<div><input class="varIn" type="number" id="inCoDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwi</label></div>
+				<div><input class="varIn" type="number" id="inCwiDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwo</label></div>
+				<div><input class="varIn" type="number" id="inCwoDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbc</label></div>
+				<div><input class="varIn" type="number" id="inCbcDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbe</label></div>
+				<div><input class="varIn" type="number" id="inCbeDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cce</label></div>
+				<div><input class="varIn" type="number" id="inCceDTTBJ" onchange="calcDTTBJ()"></div>
+				<div><label>F</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=Vb%3D%5Cfrac%7BVcc.R2%7D%7BR1%2BR2%7D&color=white&alternateColor=white"></div>
 				<div><label id="resVbDTTBJ"></label></div>
 				<div><label>V</label></div>
-                
-                <div><img src="https://math.now.sh?from=Ve%3DVb-0%2C7&color=white&alternateColor=white"></div>
+				
+				<div><img src="https://math.now.sh?from=Ve%3DVb-0%2C7&color=white&alternateColor=white"></div>
 				<div><label id="resVeDTTBJ"></label></div>
 				<div><label>V</label></div>
 
-                <div><img src="https://math.now.sh?from=Ie%3D%5Cfrac%7BVe%7D%7BRe%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Ie%3D%5Cfrac%7BVe%7D%7BRe%7D&color=white&alternateColor=white"></div>
 				<div><label id="resIeDTTBJ"></label></div>
 				<div><label>A</label></div>
 
-                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
 				<div><label id="resreDTTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=R'%3DR1%2F%2FR2&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=R'%3DR1%2F%2FR2&color=white&alternateColor=white"></div>
 				<div><label id="resR_DTTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7B-Rc%2F%2Fro%7D%7Bre%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7B-Rc%2F%2Fro%7D%7Bre%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvnlDTTBJ"></label></div>
 				<div><label></label></div>
 
-                <div><img src="https://math.now.sh?from=Zi%3DR'%2F%2F%5Cbeta.re&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Zi%3DR'%2F%2F%5Cbeta.re&color=white&alternateColor=white"></div>
 				<div><label id="resZiDTTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=white&alternateColor=white"></div>
 				<div><label id="resZoDTTBJ"></label></div>
 				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvDTTBJ"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
-        <div class="Campo" id="SETBJ">
-            <div><h1>Seguidor Emissor TBJ</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/SETBJ.png"></div>
-            <div class="entradas">
-                <div><label>Rb</label></div>
-                <div><input class="varIn" type="number" id="inRbSETBJ" onchange="calcSETBJ()"></div>
-                <div><label>Ω</label></div>
-        
-                <div><label>Re</label></div>
-                <div><input class="varIn" type="number" id="inReSETBJ" onchange="calcSETBJ()"></div>
-                <div><label>Ω</label></div>
-        
-                <div><label>ro</label></div>
-                <div><input class="varIn" type="number" id="inroSETBJ" onchange="calcSETBJ()"></div>
-                <div><label>Ω</label></div>
-        
-                <div><label>β</label></div>
-                <div><input class="varIn" type="number" id="inBetaSETBJ" onchange="calcSETBJ()"></div>
-                <div><label></label></div>
-        
-                <div><label>Vcc</label></div>
-                <div><input class="varIn" type="number" id="inVccSETBJ" onchange="calcSETBJ()"></div>
-                <div><label>V</label></div>
 
-                <div><label>RS</label></div>
+				<div><img src="https://math.now.sh?from=Ri%3DRS%2F%2FR'&color=white&alternateColor=white"></div>
+				<div><label id="resRiDTTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=Zeq%3DRe%2F%2F%5Cleft%28%5Cfrac%7BRi%7D%7B%5Cbeta%7D%2Bre%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resZeqDTTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=fle%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ce.Zeq%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfleDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fli%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ci.%28Zi%2BRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfliDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=flo%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Co.%28Zo%2BRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfloDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fl%3Dmaior%28fle%2Cfli%2Cflo%29&color=white&alternateColor=white"></div>
+				<div><label id="resflDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=Chi%3DCwi%2BCbe%2BCbc.%281-Avl%29&color=white&alternateColor=white"></div>
+				<div><label id="resChiDTTBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=Cho%3DCwo%2BCce%2BCbc.%5Cleft%281-%5Cfrac%7B1%7D%7BAvl%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resChoDTTBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=fhi%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Chi.%28Zi%2F%2FRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhiDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Cho.%28Zo%2F%2FRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhoDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.re.%28Cbc%2BCbe%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resftDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fh%3Dmenor%28fhi%2Cfho%2Cft%29&color=white&alternateColor=white"></div>
+				<div><label id="resfhDTTBJ"></label></div>
+				<div><label>Hz</label></div>
+			</div>
+		</div>
+		<div class="Campo" id="SETBJ">
+			<div><h1>Seguidor Emissor TBJ</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/SETBJ.png"></div>
+			<div class="entradas">
+				<div><label>Rb</label></div>
+				<div><input class="varIn" type="number" id="inRbSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>Ω</label></div>
+		
+				<div><label>Re</label></div>
+				<div><input class="varIn" type="number" id="inReSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>Ω</label></div>
+		
+				<div><label>ro</label></div>
+				<div><input class="varIn" type="number" id="inroSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>Ω</label></div>
+		
+				<div><label>β</label></div>
+				<div><input class="varIn" type="number" id="inBetaSETBJ" onchange="calcSETBJ()"></div>
+				<div><label></label></div>
+		
+				<div><label>Vcc</label></div>
+				<div><input class="varIn" type="number" id="inVccSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>V</label></div>
+
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSSETBJ" onchange="calcSETBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLSETBJ" onchange="calcSETBJ()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=Ib%3D%5Cfrac%7BVcc-0%2C7%7D%7BRb%2BRe%28%5Cbeta%2B1%29%7D&color=white&alternateColor=white"></div>
-                <div><label id="resIbSETBJ"></label></div>
-                <div><label>A</label></div>
-                
-                <div><img src="https://math.now.sh?from=Ie%3D%28%5Cbeta%2B1%29Ib&color=white&alternateColor=white"></div>
-                <div><label id="resIeSETBJ"></label></div>
-                <div><label>A</label></div>
-        
-                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
-                <div><label id="resreSETBJ"></label></div>
-                <div><label>Ω</label></div>
-        
-                <div><img src="https://math.now.sh?from=Zb%3D%5Cbeta%28Re%2Bre%29&color=white&alternateColor=white"></div>
-                <div><label id="resZbSETBJ"></label></div>
-                <div><label>Ω</label></div>
-        
-                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7BRe%7D%7BRe%2Bre%7D%5Capprox1&color=white&alternateColor=white"></div>
-                <div><label id="resAvnlSETBJ"></label></div>
-                <div><label></label></div>
-        
-                <div><img src="https://math.now.sh?from=Zi%3DRb%2F%2FZb&color=white&alternateColor=white"></div>
-                <div><label id="resZiSETBJ"></label></div>
-                <div><label>Ω</label></div>
-        
-                <div><img src="https://math.now.sh?from=Zo%3DRe%2F%2F%5Cbeta.re%2F%2Fre%2F%2Fro&color=white&alternateColor=white"></div>
-                <div><label id="resZoSETBJ"></label></div>
-                <div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><label>Ce</label></div>
+				<div><input class="varIn" type="number" id="inCeSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Ci</label></div>
+				<div><input class="varIn" type="number" id="inCiSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Co</label></div>
+				<div><input class="varIn" type="number" id="inCoSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwi</label></div>
+				<div><input class="varIn" type="number" id="inCwiSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwo</label></div>
+				<div><input class="varIn" type="number" id="inCwoSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbc</label></div>
+				<div><input class="varIn" type="number" id="inCbcSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbe</label></div>
+				<div><input class="varIn" type="number" id="inCbeSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cce</label></div>
+				<div><input class="varIn" type="number" id="inCceSETBJ" onchange="calcSETBJ()"></div>
+				<div><label>F</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=Ib%3D%5Cfrac%7BVcc-0%2C7%7D%7BRb%2BRe%28%5Cbeta%2B1%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resIbSETBJ"></label></div>
+				<div><label>A</label></div>
+				
+				<div><img src="https://math.now.sh?from=Ie%3D%28%5Cbeta%2B1%29Ib&color=white&alternateColor=white"></div>
+				<div><label id="resIeSETBJ"></label></div>
+				<div><label>A</label></div>
+		
+				<div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
+				<div><label id="resreSETBJ"></label></div>
+				<div><label>Ω</label></div>
+		
+				<div><img src="https://math.now.sh?from=Zb%3D%5Cbeta%28Re%2Bre%29&color=white&alternateColor=white"></div>
+				<div><label id="resZbSETBJ"></label></div>
+				<div><label>Ω</label></div>
+		
+				<div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7BRe%7D%7BRe%2Bre%7D%5Capprox1&color=white&alternateColor=white"></div>
+				<div><label id="resAvnlSETBJ"></label></div>
+				<div><label></label></div>
+		
+				<div><img src="https://math.now.sh?from=Zi%3DRb%2F%2FZb&color=white&alternateColor=white"></div>
+				<div><label id="resZiSETBJ"></label></div>
+				<div><label>Ω</label></div>
+		
+				<div><img src="https://math.now.sh?from=Zo%3DRe%2F%2F%5Cbeta.re%2F%2Fre%2F%2Fro&color=white&alternateColor=white"></div>
+				<div><label id="resZoSETBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvSETBJ"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
-        <div class="Campo" id="BCTBJ">
-            <div><h1>Base Comum TBJ</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/BCTBJ.png"></div>
-            <div class="entradas">
-                <div><label>Rc</label></div>
-                <div><input class="varIn" type="number" id="inRcBCTBJ" onchange="calcBCTBJ()"></div>
-                <div><label>Ω</label></div>
 
-                <div><label>Re</label></div>
-                <div><input class="varIn" type="number" id="inReBCTBJ" onchange="calcBCTBJ()"></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Ri%3DRS%2F%2FRb&color=white&alternateColor=white"></div>
+				<div><label id="resRiSETBJ"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><label>ro</label></div>
-                <div><input class="varIn" type="number" id="inroBCTBJ" onchange="calcBCTBJ()"></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zeq%3DRe%2F%2F%5Cleft%28%5Cfrac%7BRi%7D%7B%5Cbeta%7D%2Bre%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resZeqSETBJ"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><label>α</label></div>
-                <div><input class="varIn" type="number" id="inAlfaBCTBJ" onchange="calcBCTBJ()"></div>
-                <div><label></label></div>
+				<div><img src="https://math.now.sh?from=fle%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ce.Zeq%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfleSETBJ"></label></div>
+				<div><label>Hz</label></div>
 
-                <div><label>Vee</label></div>
-                <div><input class="varIn" type="number" id="inVeeBCTBJ" onchange="calcBCTBJ()"></div>
-                <div><label>V</label></div>
+				<div><img src="https://math.now.sh?from=fli%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ci.%28Zi%2BRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfliSETBJ"></label></div>
+				<div><label>Hz</label></div>
 
-                <div><label>RS</label></div>
+				<div><img src="https://math.now.sh?from=flo%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Co.%28Zo%2BRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfloSETBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fl%3Dmaior%28fle%2Cfli%2Cflo%29&color=white&alternateColor=white"></div>
+				<div><label id="resflSETBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=Chi%3DCwi%2BCbe%2BCbc.%281-Avl%29&color=white&alternateColor=white"></div>
+				<div><label id="resChiSETBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=Cho%3DCwo%2BCce%2BCbc.%5Cleft%281-%5Cfrac%7B1%7D%7BAvl%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resChoSETBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=fhi%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Chi.%28Zi%2F%2FRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhiSETBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Cho.%28Zo%2F%2FRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhoSETBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.re.%28Cbc%2BCbe%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resftSETBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fh%3Dmenor%28fhi%2Cfho%2Cft%29&color=white&alternateColor=white"></div>
+				<div><label id="resfhSETBJ"></label></div>
+				<div><label>Hz</label></div>
+			</div>
+		</div>
+		<div class="Campo" id="BCTBJ">
+			<div><h1>Base Comum TBJ</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/BCTBJ.png"></div>
+			<div class="entradas">
+				<div><label>Rc</label></div>
+				<div><input class="varIn" type="number" id="inRcBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>Ω</label></div>
+
+				<div><label>Re</label></div>
+				<div><input class="varIn" type="number" id="inReBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>Ω</label></div>
+
+				<div><label>ro</label></div>
+				<div><input class="varIn" type="number" id="inroBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>Ω</label></div>
+
+				<div><label>α</label></div>
+				<div><input class="varIn" type="number" id="inAlfaBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label></label></div>
+
+				<div><label>Vee</label></div>
+				<div><input class="varIn" type="number" id="inVeeBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>V</label></div>
+
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSBCTBJ" onchange="calcBCTBJ()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLBCTBJ" onchange="calcBCTBJ()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=Ie%3D%5Cfrac%7BVee-0%2C7%7D%7Bre%7D&color=white&alternateColor=white"></div>
-                <div><label id="resIeBCTBJ"></label></div>
-                <div><label>A</label></div>
 
-                <div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
-                <div><label id="resreBCTBJ"></label></div>
-                <div><label>Ω</label></div>
+				<div><label>Ce</label></div>
+				<div><input class="varIn" type="number" id="inCeBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
 
-                <div><img src="https://math.now.sh?from=Avnl%3D%5Calpha%5Cfrac%7BRc%2F%2Fro%7D%7Bre%7D&color=white&alternateColor=white"></div>
-                <div><label id="resAvnlBCTBJ"></label></div>
-                <div><label></label></div>
+				<div><label>Ci</label></div>
+				<div><input class="varIn" type="number" id="inCiBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
 
-                <div><img src="https://math.now.sh?from=Zi%3DRe%2F%2Fre&color=white&alternateColor=white"></div>
-                <div><label id="resZiBCTBJ"></label></div>
-                <div><label>Ω</label></div>
-        
-                <div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=white&alternateColor=white"></div>
-                <div><label id="resZoBCTBJ"></label></div>
-                <div><label>Ω</label></div>
+				<div><label>Co</label></div>
+				<div><input class="varIn" type="number" id="inCoBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><label>Cwi</label></div>
+				<div><input class="varIn" type="number" id="inCwiBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cwo</label></div>
+				<div><input class="varIn" type="number" id="inCwoBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbc</label></div>
+				<div><input class="varIn" type="number" id="inCbcBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cbe</label></div>
+				<div><input class="varIn" type="number" id="inCbeBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
+
+				<div><label>Cce</label></div>
+				<div><input class="varIn" type="number" id="inCceBCTBJ" onchange="calcBCTBJ()"></div>
+				<div><label>F</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=Ie%3D%5Cfrac%7BVee-0%2C7%7D%7Bre%7D&color=white&alternateColor=white"></div>
+				<div><label id="resIeBCTBJ"></label></div>
+				<div><label>A</label></div>
+
+				<div><img src="https://math.now.sh?from=re%3D%5Cfrac%7B26mV%7D%7BIe%7D&color=white&alternateColor=white"></div>
+				<div><label id="resreBCTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=Avnl%3D%5Calpha%5Cfrac%7BRc%2F%2Fro%7D%7Bre%7D&color=white&alternateColor=white"></div>
+				<div><label id="resAvnlBCTBJ"></label></div>
+				<div><label></label></div>
+
+				<div><img src="https://math.now.sh?from=Zi%3DRe%2F%2Fre&color=white&alternateColor=white"></div>
+				<div><label id="resZiBCTBJ"></label></div>
+				<div><label>Ω</label></div>
+		
+				<div><img src="https://math.now.sh?from=Zo%3DRc%2F%2Fro&color=white&alternateColor=white"></div>
+				<div><label id="resZoBCTBJ"></label></div>
+				<div><label>Ω</label></div>
+
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvBCTBJ"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
-        <div class="Campo" id="PFFET">
-            <div><h1>Polarização Fixa FET</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/PFFET.png"></div>
-            <div class="entradas">
-                <div><label>Rg</label></div>
-                <div><input class="varIn" type="number" id="inRgPFFET" onchange="calcPFFET()"></div>
-                <div><label>Ω</label></div>
 
-                <div><label>Rd</label></div>
-                <div><input class="varIn" type="number" id="inRdPFFET" onchange="calcPFFET()"></div>
-                <div><label>Ω</label></div>
-                
-                <div><label>rd</label></div>
-                <div><input class="varIn" type="number" id="inrdPFFET" onchange="calcPFFET()"></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Ri%3DRS%2F%2FRe&color=white&alternateColor=white"></div>
+				<div><label id="resRiBCTBJ"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><label>Vp</label></div>
-                <div><input class="varIn" type="number" id="inVpPFFET" onchange="calcPFFET()"></div>
-                <div><label>V</label></div>
+				<div><img src="https://math.now.sh?from=Zeq%3DRe%2F%2F%5Cleft%28%5Cfrac%7BRi%7D%7B%5Cbeta%7D%2Bre%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resZeqBCTBJ"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><label>Vgs</label></div>
-                <div><input class="varIn" type="number" id="inVgsPFFET" onchange="calcPFFET()"></div>
-                <div><label>V</label></div>
+				<div><img src="https://math.now.sh?from=fle%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ce.Zeq%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfleBCTBJ"></label></div>
+				<div><label>Hz</label></div>
 
-                <div><label>Yos</label></div>
-                <div><input class="varIn" type="number" id="inYosPFFET" onchange="calcPFFET()"></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=fli%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Ci.%28Zi%2BRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfliBCTBJ"></label></div>
+				<div><label>Hz</label></div>
 
-                <div><label>Idss</label></div>
-                <div><input class="varIn" type="number" id="inIdssPFFET" onchange="calcPFFET()"></div>
-                <div><label>A</label></div>
+				<div><img src="https://math.now.sh?from=flo%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Co.%28Zo%2BRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfloBCTBJ"></label></div>
+				<div><label>Hz</label></div>
 
-                <div><label>RS</label></div>
+				<div><img src="https://math.now.sh?from=fl%3Dmaior%28fle%2Cfli%2Cflo%29&color=white&alternateColor=white"></div>
+				<div><label id="resflBCTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=Chi%3DCwi%2BCbe%2BCbc.%281-Avl%29&color=white&alternateColor=white"></div>
+				<div><label id="resChiBCTBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=Cho%3DCwo%2BCce%2BCbc.%5Cleft%281-%5Cfrac%7B1%7D%7BAvl%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resChoBCTBJ"></label></div>
+				<div><label>F</label></div>
+
+				<div><img src="https://math.now.sh?from=fhi%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Chi.%28Zi%2F%2FRS%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhiBCTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.Cho.%28Zo%2F%2FRL%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resfhoBCTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fho%3D%5Cfrac%7B1%7D%7B2.%5Cpi.re.%28Cbc%2BCbe%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resftBCTBJ"></label></div>
+				<div><label>Hz</label></div>
+
+				<div><img src="https://math.now.sh?from=fh%3Dmenor%28fhi%2Cfho%2Cft%29&color=white&alternateColor=white"></div>
+				<div><label id="resfhBCTBJ"></label></div>
+				<div><label>Hz</label></div>
+			</div>
+		</div>
+		<div class="Campo" id="PFFET">
+			<div><h1>Polarização Fixa FET</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/PFFET.png"></div>
+			<div class="entradas">
+				<div><label>Rg</label></div>
+				<div><input class="varIn" type="number" id="inRgPFFET" onchange="calcPFFET()"></div>
+				<div><label>Ω</label></div>
+
+				<div><label>Rd</label></div>
+				<div><input class="varIn" type="number" id="inRdPFFET" onchange="calcPFFET()"></div>
+				<div><label>Ω</label></div>
+				
+				<div><label>rd</label></div>
+				<div><input class="varIn" type="number" id="inrdPFFET" onchange="calcPFFET()"></div>
+				<div><label>Ω</label></div>
+
+				<div><label>Vp</label></div>
+				<div><input class="varIn" type="number" id="inVpPFFET" onchange="calcPFFET()"></div>
+				<div><label>V</label></div>
+
+				<div><label>Vgs</label></div>
+				<div><input class="varIn" type="number" id="inVgsPFFET" onchange="calcPFFET()"></div>
+				<div><label>V</label></div>
+
+				<div><label>Yos</label></div>
+				<div><input class="varIn" type="number" id="inYosPFFET" onchange="calcPFFET()"></div>
+				<div><label>S</label></div>
+
+				<div><label>Idss</label></div>
+				<div><input class="varIn" type="number" id="inIdssPFFET" onchange="calcPFFET()"></div>
+				<div><label>A</label></div>
+
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSPFFET" onchange="calcPFFET()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLPFFET" onchange="calcPFFET()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=rd%3D%5Cfrac%7B1%7D%7BYos%7D&color=white&alternateColor=white"></div>
-                <div><label id="resrdPFFET"></label></div>
-                <div><label>Ω</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=rd%3D%5Cfrac%7B1%7D%7BYos%7D&color=white&alternateColor=white"></div>
+				<div><label id="resrdPFFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Yos%3D%5Cfrac%7B1%7D%7Brs%7D&color=white&alternateColor=white"></div>
-                <div><label id="resYosPFFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=Yos%3D%5Cfrac%7B1%7D%7Brs%7D&color=white&alternateColor=white"></div>
+				<div><label id="resYosPFFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=gm%3D%5Cfrac%7B2.Idss%7D%7B%7CVp%7C%7D.%5Cleft%281-%5Cfrac%7BVgs%7D%7BVp%7D%5Cright%29&color=white&alternateColor=white"></div>
-                <div><label id="resgmPFFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=gm%3D%5Cfrac%7B2.Idss%7D%7B%7CVp%7C%7D.%5Cleft%281-%5Cfrac%7BVgs%7D%7BVp%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resgmPFFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=Avnl%3D-gm%28Rd%2F%2Frd%29&color=white&alternateColor=white"></div>
-                <div><label id="resAvnlPFFET"></label></div>
-                <div><label></label></div>
+				<div><img src="https://math.now.sh?from=Avnl%3D-gm%28Rd%2F%2Frd%29&color=white&alternateColor=white"></div>
+				<div><label id="resAvnlPFFET"></label></div>
+				<div><label></label></div>
 
-                <div><img src="https://math.now.sh?from=Zi%3DRg&color=white&alternateColor=white"></div>
-                <div><label id="resZiPFFET"></label></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zi%3DRg&color=white&alternateColor=white"></div>
+				<div><label id="resZiPFFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Zo%3DRd%2F%2Frd&color=white&alternateColor=white"></div>
-                <div><label id="resZoPFFET"></label></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zo%3DRd%2F%2Frd&color=white&alternateColor=white"></div>
+				<div><label id="resZoPFFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvPFFET"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
-        <div class="Campo" id="DTFET">
-            <div><h1>Divisor de Tensão FET</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/DTFET.png"></div>
-            <div class="entradas">
-                <div><label>R1</label></div>
-                <div><input class="varIn" type="number" id="inR1DTFET" onchange="calcDTFET()"></div>
-                <div><label>Ω</label></div>
+			</div>
+		</div>
+		<div class="Campo" id="DTFET">
+			<div><h1>Divisor de Tensão FET</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/DTFET.png"></div>
+			<div class="entradas">
+				<div><label>R1</label></div>
+				<div><input class="varIn" type="number" id="inR1DTFET" onchange="calcDTFET()"></div>
+				<div><label>Ω</label></div>
 
-                <div><label>R2</label></div>
-                <div><input class="varIn" type="number" id="inR2DTFET" onchange="calcDTFET()"></div>
-                <div><label>Ω</label></div>
-                
-                <div><label>Rd</label></div>
-                <div><input class="varIn" type="number" id="inRdDTFET" onchange="calcDTFET()"></div>
-                <div><label>Ω</label></div>
+				<div><label>R2</label></div>
+				<div><input class="varIn" type="number" id="inR2DTFET" onchange="calcDTFET()"></div>
+				<div><label>Ω</label></div>
+				
+				<div><label>Rd</label></div>
+				<div><input class="varIn" type="number" id="inRdDTFET" onchange="calcDTFET()"></div>
+				<div><label>Ω</label></div>
 
-                <div><label>Rs</label></div>
-                <div><input class="varIn" type="number" id="inRsDTFET" onchange="calcDTFET()"></div>
-                <div><label>Ω</label></div>
-                
-                <div><label>rd</label></div>
-                <div><input class="varIn" type="number" id="inrdDTFET" onchange="calcDTFET()"></div>
-                <div><label>Ω</label></div>
+				<div><label>Rs</label></div>
+				<div><input class="varIn" type="number" id="inRsDTFET" onchange="calcDTFET()"></div>
+				<div><label>Ω</label></div>
+				
+				<div><label>rd</label></div>
+				<div><input class="varIn" type="number" id="inrdDTFET" onchange="calcDTFET()"></div>
+				<div><label>Ω</label></div>
 
-                <div><label>Yos</label></div>
-                <div><input class="varIn" type="number" id="inYosDTFET" onchange="calcDTFET()"></div>
-                <div><label>S</label></div>
+				<div><label>Yos</label></div>
+				<div><input class="varIn" type="number" id="inYosDTFET" onchange="calcDTFET()"></div>
+				<div><label>S</label></div>
 
-                <div><label>Vdd</label></div>
-                <div><input class="varIn" type="number" id="inVddDTFET" onchange="calcDTFET()"></div>
-                <div><label>V</label></div>
-                
-                <div><label>Vp</label></div>
-                <div><input class="varIn" type="number" id="inVpDTFET" onchange="calcDTFET()"></div>
-                <div><label>V</label></div>
+				<div><label>Vdd</label></div>
+				<div><input class="varIn" type="number" id="inVddDTFET" onchange="calcDTFET()"></div>
+				<div><label>V</label></div>
+				
+				<div><label>Vp</label></div>
+				<div><input class="varIn" type="number" id="inVpDTFET" onchange="calcDTFET()"></div>
+				<div><label>V</label></div>
 
-                <div><label>Vgs</label></div>
-                <div><input class="varIn" type="number" id="inVgsDTFET" onchange="calcDTFET()"></div>
-                <div><label>V</label></div>
+				<div><label>Vgs</label></div>
+				<div><input class="varIn" type="number" id="inVgsDTFET" onchange="calcDTFET()"></div>
+				<div><label>V</label></div>
 
-                <div><label>Idss</label></div>
-                <div><input class="varIn" type="number" id="inIdssDTFET" onchange="calcDTFET()"></div>
-                <div><label>A</label></div>
+				<div><label>Idss</label></div>
+				<div><input class="varIn" type="number" id="inIdssDTFET" onchange="calcDTFET()"></div>
+				<div><label>A</label></div>
 
-                <div><label>RS</label></div>
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSDTFET" onchange="calcDTFET()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLDTFET" onchange="calcDTFET()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=rd%3D%5Cfrac%7B1%7D%7BYos%7D&color=white&alternateColor=white"></div>
-                <div><label id="resrdDTFET"></label></div>
-                <div><label>Ω</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=rd%3D%5Cfrac%7B1%7D%7BYos%7D&color=white&alternateColor=white"></div>
+				<div><label id="resrdDTFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Yos%3D%5Cfrac%7B1%7D%7Brd%7D&color=white&alternateColor=white"></div>
-                <div><label id="resYosDTFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=Yos%3D%5Cfrac%7B1%7D%7Brd%7D&color=white&alternateColor=white"></div>
+				<div><label id="resYosDTFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=Vgs&color=white&alternateColor=white"></div>
-                <div><label id="resVgsDTFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=Vgs&color=white&alternateColor=white"></div>
+				<div><label id="resVgsDTFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=gm%3D%5Cfrac%7B2.Idss%7D%7B%7CVp%7C%7D.%5Cleft%281-%5Cfrac%7BVgs%7D%7BVp%7D%5Cright%29&color=white&alternateColor=white"></div>
-                <div><label id="resgmDTFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=gm%3D%5Cfrac%7B2.Idss%7D%7B%7CVp%7C%7D.%5Cleft%281-%5Cfrac%7BVgs%7D%7BVp%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resgmDTFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=Avnl%3D-gm%28Rd%2F%2Frd%29&color=white&alternateColor=white"></div>
-                <div><label id="resAvnlDTFET"></label></div>
-                <div><label></label></div>
+				<div><img src="https://math.now.sh?from=Avnl%3D-gm%28Rd%2F%2Frd%29&color=white&alternateColor=white"></div>
+				<div><label id="resAvnlDTFET"></label></div>
+				<div><label></label></div>
 
-                <div><img src="https://math.now.sh?from=Zi%3DR1%2F%2FR2&color=white&alternateColor=white"></div>
-                <div><label id="resZiDTFET"></label></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zi%3DR1%2F%2FR2&color=white&alternateColor=white"></div>
+				<div><label id="resZiDTFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Zo%3DRd%2F%2Frd&color=white&alternateColor=white"></div>
-                <div><label id="resZoDTFET"></label></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zo%3DRd%2F%2Frd&color=white&alternateColor=white"></div>
+				<div><label id="resZoDTFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvDTFET"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
-        <div class="Campo" id="DCFET">
-            <div><h1>Dreno Comum FET</h1></div>
-            <div><img class="imgCirc" src="Img/Circuitos/DCFET.png"></div>
-            <div class="entradas">
-                <div><label>Rg</label></div>
-                <div><input class="varIn" type="number" id="inRgDCFET" onchange="calcDCFET()"></div>
-                <div><label>Ω</label></div>
+			</div>
+		</div>
+		<div class="Campo" id="DCFET">
+			<div><h1>Dreno Comum FET</h1></div>
+			<div><img class="imgCirc" src="Img/Circuitos/DCFET.png"></div>
+			<div class="entradas">
+				<div><label>Rg</label></div>
+				<div><input class="varIn" type="number" id="inRgDCFET" onchange="calcDCFET()"></div>
+				<div><label>Ω</label></div>
 
-                <div><label>Rs</label></div>
-                <div><input class="varIn" type="number" id="inRsDCFET" onchange="calcDCFET()"></div>
-                <div><label>Ω</label></div>
+				<div><label>Rs</label></div>
+				<div><input class="varIn" type="number" id="inRsDCFET" onchange="calcDCFET()"></div>
+				<div><label>Ω</label></div>
 
-                <div><label>rd</label></div>
-                <div><input class="varIn" type="number" id="inrdDCFET" onchange="calcDCFET()"></div>
-                <div><label>Ω</label></div>
+				<div><label>rd</label></div>
+				<div><input class="varIn" type="number" id="inrdDCFET" onchange="calcDCFET()"></div>
+				<div><label>Ω</label></div>
 
-                <div><label>Vp</label></div>
-                <div><input class="varIn" type="number" id="inVpDCFET" onchange="calcDCFET()"></div>
-                <div><label>V</label></div>
+				<div><label>Vp</label></div>
+				<div><input class="varIn" type="number" id="inVpDCFET" onchange="calcDCFET()"></div>
+				<div><label>V</label></div>
 
-                <div><label>Vgs</label></div>
-                <div><input class="varIn" type="number" id="inVgsDCFET" onchange="calcDCFET()"></div>
-                <div><label>V</label></div>
+				<div><label>Vgs</label></div>
+				<div><input class="varIn" type="number" id="inVgsDCFET" onchange="calcDCFET()"></div>
+				<div><label>V</label></div>
 
-                <div><label>Yos</label></div>
-                <div><input class="varIn" type="number" id="inYosDCFET" onchange="calcDCFET()"></div>
-                <div><label>S</label></div>
+				<div><label>Yos</label></div>
+				<div><input class="varIn" type="number" id="inYosDCFET" onchange="calcDCFET()"></div>
+				<div><label>S</label></div>
 
-                <div><label>Idss</label></div>
-                <div><input class="varIn" type="number" id="inIdssDCFET" onchange="calcDCFET()"></div>
-                <div><label>A</label></div>
+				<div><label>Idss</label></div>
+				<div><input class="varIn" type="number" id="inIdssDCFET" onchange="calcDCFET()"></div>
+				<div><label>A</label></div>
 
-                <div><label>Id</label></div>
-                <div><input class="varIn" type="number" id="inIdDCFET" onchange="calcDCFET()"></div>
-                <div><label>A</label></div>
+				<div><label>Id</label></div>
+				<div><input class="varIn" type="number" id="inIdDCFET" onchange="calcDCFET()"></div>
+				<div><label>A</label></div>
 
-                <div><label>RS</label></div>
+				<div><label>RS</label></div>
 				<div><input class="varIn" type="number" id="inRSDCFET" onchange="calcDCFET()"></div>
 				<div><label>Ω</label></div>
 
-                <div><label>RL</label></div>
+				<div><label>RL</label></div>
 				<div><input class="varIn" type="number" id="inRLDCFET" onchange="calcDCFET()"></div>
 				<div><label>Ω</label></div>
-            </div>
-            <div class="saidas">
-                <div><img src="https://math.now.sh?from=rd%3D%5Cfrac%7B1%7D%7BYos%7D&color=white&alternateColor=white"></div>
-                <div><label id="resrdDCFET"></label></div>
-                <div><label>Ω</label></div>
+			</div>
+			<div class="saidas">
+				<div><img src="https://math.now.sh?from=rd%3D%5Cfrac%7B1%7D%7BYos%7D&color=white&alternateColor=white"></div>
+				<div><label id="resrdDCFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Yos%3D%5Cfrac%7B1%7D%7Brd%7D&color=white&alternateColor=white"></div>
-                <div><label id="resYosDCFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=Yos%3D%5Cfrac%7B1%7D%7Brd%7D&color=white&alternateColor=white"></div>
+				<div><label id="resYosDCFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=Vgs%3DVp%5Cleft%281-%5Csqrt%7B%5Cfrac%7BId%7D%7BIdss%7D%7D%5Cright%29&color=white&alternateColor=white"></div>
-                <div><label id="resVgsDCFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=Vgs%3DVp%5Cleft%281-%5Csqrt%7B%5Cfrac%7BId%7D%7BIdss%7D%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resVgsDCFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=gm%3D%5Cfrac%7B2.Idss%7D%7B%7CVp%7C%7D.%5Cleft%281-%5Cfrac%7BVgs%7D%7BVp%7D%5Cright%29&color=white&alternateColor=white"></div>
-                <div><label id="resgmDCFET"></label></div>
-                <div><label>S</label></div>
+				<div><img src="https://math.now.sh?from=gm%3D%5Cfrac%7B2.Idss%7D%7B%7CVp%7C%7D.%5Cleft%281-%5Cfrac%7BVgs%7D%7BVp%7D%5Cright%29&color=white&alternateColor=white"></div>
+				<div><label id="resgmDCFET"></label></div>
+				<div><label>S</label></div>
 
-                <div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7Bgm.%28Rs%2F%2Frd%29%7D%7B1%2Bgm.%28Rs%2F%2Frd%29%7D&color=white&alternateColor=white"></div>
-                <div><label id="resAvnlDCFET"></label></div>
-                <div><label></label></div>
+				<div><img src="https://math.now.sh?from=Avnl%3D%5Cfrac%7Bgm.%28Rs%2F%2Frd%29%7D%7B1%2Bgm.%28Rs%2F%2Frd%29%7D&color=white&alternateColor=white"></div>
+				<div><label id="resAvnlDCFET"></label></div>
+				<div><label></label></div>
 
-                <div><img src="https://math.now.sh?from=Zi%3DRg&color=white&alternateColor=white"></div>
-                <div><label id="resZiDCFET"></label></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zi%3DRg&color=white&alternateColor=white"></div>
+				<div><label id="resZiDCFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Zo%3DRs%2F%2Frs%2F%2F%5Cfrac%7B1%7D%7Bgm%7D&color=white&alternateColor=white"></div>
-                <div><label id="resZoDCFET"></label></div>
-                <div><label>Ω</label></div>
+				<div><img src="https://math.now.sh?from=Zo%3DRs%2F%2Frs%2F%2F%5Cfrac%7B1%7D%7Bgm%7D&color=white&alternateColor=white"></div>
+				<div><label id="resZoDCFET"></label></div>
+				<div><label>Ω</label></div>
 
-                <div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
+				<div><img src="https://math.now.sh?from=Av%3DAvnl.%5Cfrac%7BZi%7D%7BZi%2BRS%7D.%5Cfrac%7BRL%7D%7BRL%2BZo%7D&color=white&alternateColor=white"></div>
 				<div><label id="resAvDCFET"></label></div>
 				<div><label></label></div>
-            </div>
-        </div>
+			</div>
+		</div>
 	</center>
 	<audio id="hino" controls loop>
 		<source src="/Sound/HinoInternacional.mp3" type="audio/mpeg">
